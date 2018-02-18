@@ -54,6 +54,11 @@ public class UIViewController implements Initializable, UIView.Delegate, Localiz
         view = root;
     }
 
+    public UIViewController(){
+        root = new UIView();
+        view = root;
+    }
+
     /**
      * The root view declared in the FXML. Might be null.
      */

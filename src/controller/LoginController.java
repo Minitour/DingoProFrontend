@@ -37,6 +37,9 @@ public class LoginController extends UIViewController {
     @FXML
     private Button exitButton;
 
+    @FXML
+    private Button submitAppealButton;
+
     private Authentication authentication;
 
     private AppealCallback appealCallback;
@@ -107,6 +110,7 @@ public class LoginController extends UIViewController {
         userInputField.setOnAction(this::onEnter);
         passwordInputField.setOnAction(this::onEnter);
         idInputField.setOnAction(this::onAppeal);
+        submitAppealButton.setOnAction(this::onAppeal);
     }
 
     public void setOnExit(EventHandler<ActionEvent> eventHandler){

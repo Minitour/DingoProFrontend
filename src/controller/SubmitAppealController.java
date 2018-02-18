@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -33,6 +35,9 @@ public class SubmitAppealController extends UIViewController {
 
     @FXML
     private Button submit;
+
+    @FXML
+    private Button exitButton;
 
     public SubmitAppealController() {
         super("/resources/xml/controller_appeal.fxml");
@@ -76,5 +81,12 @@ public class SubmitAppealController extends UIViewController {
         });
     }
 
+    @Override
+    public String title() {
+        return "Submit Appeal";
+    }
 
+    public void setOnExit(EventHandler<ActionEvent> eventHandler){
+        exitButton.setOnAction(eventHandler);
+    }
 }

@@ -5,23 +5,50 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import ui.UIView?>
-<UIView fx:id="root"
-        stylesheets="@../../ui/res/css/styles.css,@../css/style.css"
-        xmlns="http://javafx.com/javafx/8.0.112"
-        xmlns:fx="http://javafx.com/fxml/1">
-    <HBox>
-        <VBox HBox.hgrow="NEVER" alignment="CENTER">
+
+<UIView fx:id="root" prefHeight="400" prefWidth="600" stylesheets="@../../ui/res/css/styles.css,@../css/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+
+
+    <VBox fx:id="backgroundPane" style="-fx-background-color: #ecf0f1;">
+        <VBox alignment="TOP_CENTER" prefHeight="${backgroundPane.height}" prefWidth="${backgroundPane.width}">
+            <Pane prefHeight="150" style="-fx-background-color: #40739e;">
+                <Label text="Submit Appeal" textFill="WHITE">
+                    <padding><Insets bottom="8" left="16" right="8" top="16" /></padding>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+                </Label>
+            </Pane>
+        </VBox>
+
+
+        <HBox alignment="BOTTOM_RIGHT">
             <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
-            <VBox fx:id="vbox_container" spacing="16" VBox.vgrow="NEVER" >
+            <JFXButton fx:id="exitButton" mnemonicParsing="false" styleClass="button-normal" text="Back" />
+        </HBox>
+
+
+    </VBox>
+    <HBox alignment="CENTER" pickOnBounds="false" spacing="40">
+        <VBox alignment="CENTER" spacing="10" HBox.hgrow="NEVER" StackPane.alignment="CENTER">
+            <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+            <VBox fx:id="vbox_container" spacing="16" styleClass="container" VBox.vgrow="NEVER">
                 <padding><Insets bottom="8" left="8" right="8" top="16" /></padding>
-                <Label fx:id="id" alignment="CENTER_RIGHT" text="ID"/>
+                <Label fx:id="id" alignment="CENTER_RIGHT" text="ID">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font></Label>
                 <JFXTextField fx:id="idField" labelFloat="true" promptText="Report ID" />
                 <TextArea fx:id="reason" maxWidth="300" minWidth="100" promptText="Appeal" />
-                <Label fx:id="date" alignment="CENTER_RIGHT" text="Current Date"/>
+                <Label fx:id="date" alignment="CENTER_RIGHT" text="Current Date" />
             </VBox>
-            <JFXButton fx:id="submit" text="Submit" styleClass="button-raised"/>
+            <JFXButton fx:id="submit" styleClass="button-raised" text="Submit" />
         </VBox>
     </HBox>
 </UIView>

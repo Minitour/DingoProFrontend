@@ -9,12 +9,16 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import ui.UIViewController;
 
+import java.util.Optional;
+
 /**
  * Created By Tony on 14/02/2018
  */
 public class AppDelegate extends Application {
 
     private final LoginController loginController = initLoginController();
+    private final SubmitAppealController appealController = initSubmitController();
+
     private Stage loginStage;
     private Stage mainStage = new Stage();
 
@@ -34,10 +38,7 @@ public class AppDelegate extends Application {
             System.exit(0);
         });
 
-        mainStage.setOnCloseRequest(event -> {
-            Platform.exit();
-            System.exit(0);
-        });
+
     }
 
     private LoginController initLoginController(){
@@ -55,8 +56,17 @@ public class AppDelegate extends Application {
         return controller;
     }
 
+    private SubmitAppealController initSubmitController(){
+        SubmitAppealController appealController = new SubmitAppealController();
+        appealController.setOnExit(event -> {
+            mainStage.close();
+            loginStage.show();
+        });
+        return appealController;
+    }
+
     void onLoginSuccess(int role){
-        UIViewController controller = null;
+        UIViewController controller = new UIViewController();
         switch (role){
             case 0:
                 controller = null;
@@ -78,17 +88,46 @@ public class AppDelegate extends Application {
 
         //loginStage.getScene().setRoot(controller.view);
         loginStage.close();
-        showLoggedInStage(controller);
+        showLoggedInStage(controller,1200,false);
     }
 
     void onMakeAppeal(String id){
-        SubmitAppealController appealController = new SubmitAppealController();
         appealController.setId(id);
-        showLoggedInStage(appealController);
+        showLoggedInStage(appealController,700,true);
     }
 
-    void showLoggedInStage(UIViewController controller){
-        mainStage.setScene(new Scene(controller.view,1200,800));
+    void showLoggedInStage(UIViewController controller,int size,boolean borderless){
+
+        //get the old scene
+        Scene s = Optional.ofNullable(mainStage).orElseGet(Stage::new).getScene();
+
+        //release old stage and create new one
+        mainStage = new Stage();
+
+        //set style
+        if(borderless)
+            mainStage.initStyle(StageStyle.UNDECORATED);
+
+        //set title
+        mainStage.setTitle(controller.title());
+
+        //if s is null, create a new scene
+        if(s == null)
+            s = new Scene(controller.view,size,((double) 8/12) * size);
+        else{
+            //else update it's root
+            s.setRoot(controller.view);
+            mainStage.setWidth(size);
+            mainStage.setHeight(((double) 8/12) * size);
+        }
+
+
+        mainStage.setScene(s);
+
+        mainStage.setOnCloseRequest(event -> {
+            Platform.exit();
+            System.exit(0);
+        });
         mainStage.show();
     }
 }
