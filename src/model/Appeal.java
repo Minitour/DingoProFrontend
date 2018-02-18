@@ -15,6 +15,9 @@ public class Appeal {
     @Expose
     private Date appealDate;
 
+    @Expose
+    private Defendant defendant;
+
     public Appeal(int serialNum, String reason, Date appealDate) {
         setSerialNum(serialNum);
         setReason(reason);
@@ -33,6 +36,8 @@ public class Appeal {
         this.appealDate = appealDate;
     }
 
+    public void setDefendant(Defendant defendant) { this.defendant = defendant; }
+
     public int getSerialNum() {
         return serialNum;
     }
@@ -44,4 +49,6 @@ public class Appeal {
     public Date getAppealDate() {
         return appealDate;
     }
+
+    public Defendant getDefendant() { return defendant; }
 }
