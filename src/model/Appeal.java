@@ -53,8 +53,4 @@ public class Appeal {
     public Defendant getDefendant() {
         return defendant;
     }
-
-    public void setDefendant(Defendant defendant) {
-        this.defendant = defendant;
-    }
 }

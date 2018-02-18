@@ -31,7 +31,7 @@
 
 
     </VBox>
-    <HBox pickOnBounds="false" alignment="CENTER" spacing="20" BorderPane.alignment="CENTER">
+    <HBox pickOnBounds="false" alignment="CENTER" spacing="40" BorderPane.alignment="CENTER" >
         <VBox alignment="CENTER" maxHeight="300.0" maxWidth="300" prefWidth="200.0" spacing="30" styleClass="container">
             <Label text="Sign In">
             <font>
@@ -57,10 +57,6 @@
                 <Insets bottom="8" left="16" right="16" top="8" />
             </padding>
         </VBox>
-        <Label text="Or">
-         <font>
-            <Font name="Helvetica Light" size="14.0" />
-         </font></Label>
         <VBox alignment="CENTER" maxHeight="300.0" maxWidth="300" prefWidth="200.0" spacing="30" styleClass="container">
             <Label text="Submit an Appeal">
             <font>

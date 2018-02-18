@@ -2,20 +2,15 @@ package network;
 
 import com.google.common.io.ByteStreams;
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
-import com.sun.security.ntlm.Server;
 import javafx.application.Platform;
 import model.*;
 import model.Route;
 import net.sf.jasperreports.engine.JasperPrint;
 import okhttp3.*;
-import sun.rmi.runtime.Log;
 
 import java.io.*;
-import java.lang.reflect.Type;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.function.BiConsumer;
 
 /**
  * Created By Tony on 14/02/2018
@@ -549,6 +544,37 @@ public class APIManager {
 
     public void getPartnerships(Callbacks.Partnership callback) {
         getPartnerships(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
+    }
+
+    public void getOfficers(String id, String token,Callbacks.Officers callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+
+        makeRequest(Constants.Routes.getOfficers(), null, body, (json, exception) -> {
+            ServerResponse response = new ServerResponse(json);
+            if (exception == null) {
+                List<OperationalOfficer> officers = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(), JsonArray.class);
+
+                for (JsonElement element : array) {
+                    try {
+                        OperationalOfficer officer = gson.fromJson(element, OperationalOfficer.class);
+                        officers.add(officer);
+                    }catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                callback.make(response, officers, null);
+            }
+            else {
+                callback.make(response, null, exception);
+            }
+        });
+    }
+
+    public void getOfficers(Callbacks.Officers callback){
+        getOfficers(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
 
 

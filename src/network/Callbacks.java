@@ -1,8 +1,7 @@
 package network;
 
 import com.google.gson.JsonObject;
-import javafx.fxml.FXML;
-import model.*;
+import model.OperationalOfficer;
 import net.sf.jasperreports.engine.JasperPrint;
 
 import java.io.InputStream;
@@ -86,5 +85,10 @@ public final class Callbacks {
     @FunctionalInterface
     public interface Resource {
         void make(InputStream stream,Exception e);
+    }
+
+    @FunctionalInterface
+    public interface Officers {
+        void make(ServerResponse response, List<OperationalOfficer> officers,Exception exception);
     }
 }

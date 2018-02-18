@@ -1,7 +1,5 @@
 package network;
 
-import com.sun.org.apache.bcel.internal.generic.GETFIELD;
-
 /**
  * Created By Tony on 14/02/2018
  */
@@ -54,12 +52,14 @@ final public class Constants {
         public static String getDefendants() {return getAddress() + "/getDefendants"; }
         public static String getLandmarks() {return getAddress() + "/getLandmarks"; }
         public static String getPartnerships() {return getAddress() + "/getPartnerships"; }
+        public static String getOfficers() {
+            return getAddress() + "/getOfficers";
+        }
         public static String getRoutes() {return getAddress() + "/getRoutes"; }
         public static String getShifts() {return getAddress() + "/getShifts"; }
         public static String getVehicleModels() {return getAddress() + "/getVehicleModels"; }
         public static String getVehicles() {return getAddress() + "/getVehicles"; }
         public static String submitAppeal() {return getAddress() + "/submitAppeal"; }
-
     }
     public static class Codes{
         public static final int SUCCESS=200;
