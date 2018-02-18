@@ -353,6 +353,10 @@ public class APIManager {
         });
     }
 
+    public void createVolunteerReportFromDingoReport(VolunteerReport report, Callbacks.General callback) {
+        createVolunteerReportFromDingoReport(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, report, callback);
+    }
+
     /**
      * Use this method to get all reports.
      *
