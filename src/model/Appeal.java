@@ -36,6 +36,8 @@ public class Appeal {
         this.appealDate = appealDate;
     }
 
+    public void setDefendant(Defendant defendant) { this.defendant = defendant; }
+
     public int getSerialNum() {
         return serialNum;
     }

@@ -77,4 +77,14 @@ public final class Callbacks {
     public interface Vehicle {
         void make(ServerResponse response, List<model.Vehicle> vehicles, Exception exception);
     }
+
+    @FunctionalInterface
+    public interface Jasper {
+        void make(JasperPrint print, Exception e);
+    }
+
+    @FunctionalInterface
+    public interface Resource {
+        void make(InputStream stream,Exception e);
+    }
 }

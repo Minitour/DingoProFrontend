@@ -49,6 +49,7 @@ final public class Constants {
         public static String createReport() {return getAddress() + "/createReport"; }
         public static String createVolunteerReportFromDingoReport() {return getAddress() + "/createVolunteerReportFromDingoReport"; }
         public static String getAllReports() {return getAddress() + "/getAllReports"; }
+        public static String exportReports() { return getAddress() + "/exportReports";}
         public static String getAppeals() {return getAddress() + "/getAppeals"; }
         public static String getDefendants() {return getAddress() + "/getDefendants"; }
         public static String getLandmarks() {return getAddress() + "/getLandmarks"; }

@@ -738,6 +738,88 @@ public class APIManager {
         submitAppeal(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, appeal, callback);
     }
 
+    /**
+     * Load jasper report from server in a given time frame.
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param from The start date.
+     * @param to The end date.
+     * @param callback The callback containing the jasper print.
+     */
+
+    public void exportReportByDate(String id,String token,Date from,Date to,Callbacks.Jasper callback) {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("id", id);
+        headers.put("sessionToken", token);
+        headers.put("from", "" + from.getTime());
+        headers.put("to", "" + to.getTime());
+        requestResource(Constants.Routes.exportReports(), headers, (stream, e) -> {
+            if (e == null) {
+                try {
+                    byte[] bytes = ByteStreams.toByteArray(stream);
+                    JasperPrint print = deserialize(bytes);
+                    callback.make(print, null);
+                } catch (IOException | ClassNotFoundException e1) {
+                    e1.printStackTrace();
+                    callback.make(null, e1);
+                }
+            } else {
+                callback.make(null, e);
+            }
+        });
+    }
+
+    public void exportReportByDate(Date from,Date to,Callbacks.Jasper callback) {
+        exportReportByDate(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, from, to, callback);
+    }
+
+
+
+
+    /**
+     * Use this method to load images/resources from the server.
+     * @param url The url of the resource
+     * @param headers The headers for the GET request
+     * @param callback The response callback.
+     */
+    private void requestResource(String url,Map<String,String> headers,final Callbacks.Resource callback){
+        Request request;
+
+        Request.Builder builder = new Request
+                .Builder()
+                .url(url)
+                .get();
+        //add additional headers
+        if(headers != null)
+            headers.forEach(builder::addHeader);
+
+        request = builder.build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                if (callback != null)
+                    callback.make(null,e);
+                System.err.println( "onFailure: " + e.toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (callback!= null){
+                    try (ResponseBody responseBody = response.body()) {
+                        InputStream res = new ByteArrayInputStream(responseBody.bytes());
+
+                        //make thread safe.
+                        Platform.runLater(() -> {
+                            callback.make(res,null);
+                        });
+                        responseBody.close();
+                    }
+                }
+            }
+        });
+    }
+
 
     /**
      * This method makes a post HTTP request to a url using the given params.
@@ -824,5 +906,17 @@ public class APIManager {
     private <T> JsonObject toJson(T object){
         JsonElement jsonElement = gson.toJsonTree(object,object.getClass());
         return (JsonObject) jsonElement;
+    }
+
+    public static byte[] serialize(Object obj) throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        ObjectOutputStream os = new ObjectOutputStream(out);
+        os.writeObject(obj);
+        return out.toByteArray();
+    }
+    public static <T> T deserialize(byte[] data) throws IOException, ClassNotFoundException {
+        ByteArrayInputStream in = new ByteArrayInputStream(data);
+        ObjectInputStream is = new ObjectInputStream(in);
+        return (T)is.readObject();
     }
 }
