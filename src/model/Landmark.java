@@ -5,10 +5,10 @@ import com.google.gson.annotations.Expose;
 public class Landmark {
 
     @Expose
-    private int route;
+    private Integer route;
 
     @Expose
-    private int orderNum;
+    private Integer orderNum;
 
     @Expose
     private String plannedArrivalTime;
@@ -19,7 +19,7 @@ public class Landmark {
     @Expose
     private String longitude;
 
-    public Landmark(int route, int orderNum, String plannedArrivalTime, String latitude, String longitude) {
+    public Landmark(Integer route, Integer orderNum, String plannedArrivalTime, String latitude, String longitude) {
         setRoute(route);
         setOrderNum(orderNum);
         setPlannedArrivalTime(plannedArrivalTime);
@@ -28,11 +28,11 @@ public class Landmark {
     }
 
 
-    public void setRoute(int route) {
+    public void setRoute(Integer route) {
         this.route = route;
     }
 
-    public void setOrderNum(int orderNum) {
+    public void setOrderNum(Integer orderNum) {
         this.orderNum = orderNum;
     }
 
@@ -48,11 +48,11 @@ public class Landmark {
         this.longitude = longitude;
     }
 
-    public int getRoute() {
+    public Integer getRoute() {
         return route;
     }
 
-    public int getOrderNum() {
+    public Integer getOrderNum() {
         return orderNum;
     }
 

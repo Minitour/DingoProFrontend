@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.*?>
+<?import ui.UIView?>
+<UIView fx:id="root"
+        stylesheets="@../../ui/res/css/styles.css,@../css/style.css"
+        xmlns="http://javafx.com/javafx/8.0.112"
+        xmlns:fx="http://javafx.com/fxml/1">
+    <HBox>
+        <VBox HBox.hgrow="NEVER" alignment="CENTER">
+            <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+            <VBox fx:id="vbox_container" spacing="16" VBox.vgrow="NEVER" >
+                <padding><Insets bottom="8" left="8" right="8" top="16" /></padding>
+                <Label fx:id="id" alignment="CENTER_RIGHT" text="ID"/>
+                <JFXTextField fx:id="idField" labelFloat="true" promptText="Report ID" />
+                <TextArea fx:id="reason" maxWidth="300" minWidth="100" promptText="Appeal" />
+                <Label fx:id="date" alignment="CENTER_RIGHT" text="Current Date"/>
+            </VBox>
+            <JFXButton fx:id="submit" text="Submit" styleClass="button-raised"/>
+        </VBox>
+    </HBox>
+</UIView>

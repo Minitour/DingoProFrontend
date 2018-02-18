@@ -2,7 +2,7 @@ package model;
 
 import com.google.gson.annotations.Expose;
 
-public class OperationalOfficer {
+public class OperationalOfficer extends Account {
 
     @Expose
     private String pin;
@@ -14,19 +14,19 @@ public class OperationalOfficer {
     private String phoneExtension;
 
     @Expose
-    private int position;
+    private Integer position;
 
     @Expose
     private Partnership ptship;
 
-    public OperationalOfficer(String pin, String name, String phoneExtension, int position, Partnership ptship) {
-        setPin(pin);
-        setName(name);
-        setPhoneExtension(phoneExtension);
-        setPosition(position);
-        setPtship(ptship);
+    public OperationalOfficer(String ID, String EMAIL, Integer ROLE_ID, String pin, String name, String phoneExtension, Integer position, Partnership ptship) {
+        super(ID, EMAIL, ROLE_ID);
+        this.pin = pin;
+        this.name = name;
+        this.phoneExtension = phoneExtension;
+        this.position = position;
+        this.ptship = ptship;
     }
-
 
     public void setPin(String pin) {
         this.pin = pin;
@@ -60,7 +60,7 @@ public class OperationalOfficer {
         return phoneExtension;
     }
 
-    public int getPosition() {
+    public Integer getPosition() {
         return position;
     }
 

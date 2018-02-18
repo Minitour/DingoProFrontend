@@ -8,18 +8,18 @@ import java.util.Collections;
 public class Partnership {
 
     @Expose
-    private int ptshipNum;
+    private Integer ptshipNum;
 
     @Expose
     private Collection<OperationalOfficer> officers;
 
 
-    public Partnership(int ptshipNum, OperationalOfficer officerABadge, OperationalOfficer officerBBadge) {
+    public Partnership(Integer ptshipNum, OperationalOfficer officerABadge, OperationalOfficer officerBBadge) {
         setPtshipNum(ptshipNum);
     }
 
 
-    public void setPtshipNum(int ptshipNum) {
+    public void setPtshipNum(Integer ptshipNum) {
         this.ptshipNum = ptshipNum;
     }
 

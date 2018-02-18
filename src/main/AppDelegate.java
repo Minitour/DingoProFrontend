@@ -1,6 +1,7 @@
 package main;
 
 import controller.LoginController;
+import controller.SubmitAppealController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -41,12 +42,16 @@ public class AppDelegate extends Application {
 
     private LoginController initLoginController(){
         LoginController controller = new LoginController();
+
         controller.setOnExit(event -> loginStage.close());
         controller.setOnAuth((role,ex)-> {
             if(role != -1) {
                 onLoginSuccess(role);
             }
         });
+
+        controller.setAppealCallback(this::onMakeAppeal);
+
         return controller;
     }
 
@@ -74,6 +79,12 @@ public class AppDelegate extends Application {
         //loginStage.getScene().setRoot(controller.view);
         loginStage.close();
         showLoggedInStage(controller);
+    }
+
+    void onMakeAppeal(String id){
+        SubmitAppealController appealController = new SubmitAppealController();
+        appealController.setId(id);
+        showLoggedInStage(appealController);
     }
 
     void showLoggedInStage(UIViewController controller){

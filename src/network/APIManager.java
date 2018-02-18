@@ -743,25 +743,17 @@ public class APIManager {
     /**
      * Use this method to submit an appeal.
      *
-     * @param id The id of the current user.
-     * @param token The session token of the user.
      * @param appeal The appeal to submit.
      * @param callback The response callback.
      */
 
-    public void submitAppeal(String id, String token, Appeal appeal, Callbacks.General callback) {
+    public void submitAppeal(Appeal appeal, Callbacks.General callback) {
         JsonObject body = new JsonObject();
-        body.addProperty("id", id);
-        body.addProperty("sessionToken", token);
         body.add("appeal", toJson(appeal));
 
         makeRequest(Constants.Routes.submitAppeal(), null, body, (json, exception) -> {
             callback.make(new ServerResponse(json), exception);
         });
-    }
-
-    public void submitAppeal(Appeal appeal, Callbacks.General callback) {
-        submitAppeal(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, appeal, callback);
     }
 
     /**

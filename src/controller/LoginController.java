@@ -39,6 +39,8 @@ public class LoginController extends UIViewController {
 
     private Authentication authentication;
 
+    private AppealCallback appealCallback;
+
     private DialogView dialogView = new DialogView();
 
     private boolean isDialogShowing = false;
@@ -93,11 +95,15 @@ public class LoginController extends UIViewController {
         }
     }
 
+    private void doAppeal(){
+        appealCallback.makeAppeal(idInputField.getText());
+    }
+
     @Override
     public void viewWillLoad(ResourceBundle bundle) {
         super.viewWillLoad(bundle);
 
-        loginButton.setOnAction(event -> doLogin());
+        loginButton.setOnAction(this::onEnter);
         userInputField.setOnAction(this::onEnter);
         passwordInputField.setOnAction(this::onEnter);
         idInputField.setOnAction(this::onAppeal);
@@ -112,7 +118,7 @@ public class LoginController extends UIViewController {
     }
 
     public void onAppeal(ActionEvent actionEvent) {
-
+        doAppeal();
     }
 
     @FunctionalInterface
@@ -120,7 +126,16 @@ public class LoginController extends UIViewController {
         void onAuth(int role, Exception e);
     }
 
+    @FunctionalInterface
+    public interface AppealCallback{
+        void makeAppeal(String id);
+    }
+
     public void setOnAuth(Authentication authentication) {
         this.authentication = authentication;
+    }
+
+    public void setAppealCallback(AppealCallback appealCallback) {
+        this.appealCallback = appealCallback;
     }
 }

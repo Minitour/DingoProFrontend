@@ -7,7 +7,7 @@ import java.util.Date;
 public class Shift {
 
     @Expose
-    private int shiftCode;
+    private Integer shiftCode;
 
     @Expose
     private Date shiftDate;
@@ -15,7 +15,7 @@ public class Shift {
     @Expose
     private String type;
 
-    public Shift(int shiftCode, Date shiftDate, String type) {
+    public Shift(Integer shiftCode, Date shiftDate, String type) {
         setShiftCode(shiftCode);
         setShiftDate(shiftDate);
         setType(type);
@@ -33,7 +33,7 @@ public class Shift {
         this.type = type;
     }
 
-    public int getShiftCode() {
+    public Integer getShiftCode() {
         return shiftCode;
     }
 

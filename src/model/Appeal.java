@@ -7,7 +7,7 @@ import java.util.Date;
 public class Appeal {
 
     @Expose
-    private int serialNum;
+    private Integer serialNum;
 
     @Expose
     private String reason;
@@ -18,13 +18,16 @@ public class Appeal {
     @Expose
     private Defendant defendant;
 
-    public Appeal(int serialNum, String reason, Date appealDate) {
+    @Expose
+    private Report report;
+
+    public Appeal(Integer serialNum, String reason, Date appealDate) {
         setSerialNum(serialNum);
         setReason(reason);
         setAppealDate(appealDate);
     }
 
-    public void setSerialNum(int serialNum) {
+    public void setSerialNum(Integer serialNum) {
         this.serialNum = serialNum;
     }
 
@@ -38,7 +41,7 @@ public class Appeal {
 
     public void setDefendant(Defendant defendant) { this.defendant = defendant; }
 
-    public int getSerialNum() {
+    public Integer getSerialNum() {
         return serialNum;
     }
 
@@ -52,5 +55,13 @@ public class Appeal {
 
     public Defendant getDefendant() {
         return defendant;
+    }
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
     }
 }
