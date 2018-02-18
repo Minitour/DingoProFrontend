@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import com.sun.security.ntlm.Server;
 import javafx.application.Platform;
 import model.*;
+import model.Route;
 import net.sf.jasperreports.engine.JasperPrint;
 import okhttp3.*;
 import sun.rmi.runtime.Log;
@@ -101,6 +102,636 @@ public class APIManager {
 
     public void updatePassword(String currentPassword,String newPassword,Callbacks.General callback){
         updatePassword(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,currentPassword,newPassword,callback);
+    }
+
+
+    /**
+     * Use this method to add an appeal to report.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param appeal The Appeal to add to report.
+     * @param report The report to add the appeal to.
+     * @param callback The response callback.
+     */
+
+    public void addAppealToReport(String id, String token, Appeal appeal, Report report, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("appeal", toJson(appeal));
+        body.add("report", toJson(report));
+
+        makeRequest(Constants.Routes.addAppealToReport(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+
+    }
+
+    public void addAppealToReport(Appeal appeal, Report report, Callbacks.General callback) {
+        addAppealToReport(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, appeal, report, callback);
+    }
+
+
+    /**
+     * Use this method to add landmark to a route.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param landmark The landmark to add to the route.
+     * @param route The route to add the landmark to.
+     * @param callback The response callback
+     */
+
+    public void addLandmarkToRoute(String id, String token, Landmark landmark, Route route, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("landmark", toJson(landmark));
+        body.add("route", toJson(route));
+
+        makeRequest(Constants.Routes.addLandmarkToRoute(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    public void addLandmarkToRoute(Landmark landmark, Route route, Callbacks.General callback) {
+        addLandmarkToRoute(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, landmark, route, callback);
+    }
+
+
+    /**
+     * Use this method to assign an officer to a partnership.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param officer The officer to add to the partnership.
+     * @param part The partnership to add the officer to.
+     * @param callback The response callback.
+     */
+
+    public void assignOfficerToPartnership(String id, String token, OperationalOfficer officer, Partnership part, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("officer", toJson(officer));
+        body.add("partnership", toJson(part));
+
+        makeRequest(Constants.Routes.assignOfficerToPartnership(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    public void assignOfficerToPartnership(OperationalOfficer officer, Partnership part, Callbacks.General callback) {
+        assignOfficerToPartnership(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, officer, part, callback);
+    }
+
+    /**
+     * Use this method to add a partnership to a shift.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param part The partnership to add to the shift.
+     * @param shift The shift to add the partnership to.
+     * @param callback The response callback.
+     */
+
+    public void assignPartnershipToShift(String id, String token, Partnership part, Shift shift, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("partnership", toJson(part));
+        body.add("shift", toJson(shift));
+
+        makeRequest(Constants.Routes.assignPartnershipToShift(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    public void assignPartnershipToShift(Partnership part, Shift shift, Callbacks.General callback) {
+        assignPartnershipToShift(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, part, shift, callback);
+    }
+
+
+    /**
+     * Use this method to assign a route to a shift.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param route The route to add to the shift.
+     * @param shift The shift to add the route to.
+     * @param callback The response callback
+     */
+
+    public void assignRouteToShift(String id, String token, Route route, Shift shift, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("route", toJson(route));
+        body.add("shift", toJson(shift));
+
+        makeRequest(Constants.Routes.assignRouteToShift(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    public void assignRouteToShift(Route route, Shift shift, Callbacks.General callback) {
+        assignRouteToShift(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, route, shift, callback);
+    }
+
+    /**
+     * Use this method to create a new defendant.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param defendant The defendant to create.
+     * @param callback The response callback.
+     */
+
+    public void createDefendant(String id, String token, Defendant defendant, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("defendant", toJson(defendant));
+
+        makeRequest(Constants.Routes.createDefendant(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    public void createDefendant(Defendant defendant, Callbacks.General callback) {
+        createDefendant(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, defendant, callback);
+    }
+
+    /**
+     * Use this method to create an Operational Officer Report.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param report The report to create.
+     * @param callback The response callback.
+     */
+
+    public void createOfficerReport(String id, String token, OfficerReport report, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("officerReport", toJson(report));
+
+        makeRequest(Constants.Routes.createOfficerReport(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    public void createOfficerReport(OfficerReport report, Callbacks.General callback) {
+        createOfficerReport(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, report, callback);
+    }
+
+    /**
+     * Use this method to create a new partnership.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param part The partnership to create.
+     * @param callback The response callback.
+     */
+    public void createPartnership(String id, String token, Partnership part, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("partnership", toJson(part));
+
+        makeRequest(Constants.Routes.createPartnership(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    public void createPartnership(Partnership part, Callbacks.General callback) {
+        createPartnership(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, part, callback);
+    }
+
+
+    /**
+     * Use this method to create a general report.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param report The report to create.
+     * @param callback The response callback.
+     */
+    public void createReport(String id, String token, Report report, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("report", toJson(report));
+
+        makeRequest(Constants.Routes.createReport(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    public void createReport(Report report, Callbacks.General callback) {
+        createReport(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, report, callback);
+    }
+
+    /**
+     * Use this method to create a volunteer report.
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param report The report to create.
+     * @param callback The response callback.
+     */
+
+    public void createVolunteerReportFromDingoReport(String id, String token, VolunteerReport report, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("volunteerReport", toJson(report));
+
+        makeRequest(Constants.Routes.createVolunteerReportFromDingoReport(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    /**
+     * Use this method to get all reports.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+    public void getAllReports(String id, String token, Callbacks.Report callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+
+        makeRequest(Constants.Routes.getAllReports(), null, body, (json, exception) -> {
+            ServerResponse response = new ServerResponse(json);
+            if (exception == null) {
+                List<Report> reports = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(), JsonArray.class);
+
+                for (JsonElement element : array) {
+                    try {
+                        Report report = gson.fromJson(element, Report.class);
+                        reports.add(report);
+                    } catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+                callback.make(response, reports, null);
+            }
+            else {
+                callback.make(response, null, exception);
+            }
+        });
+    }
+
+    public void getAllReports(Callbacks.Report callback) {
+        getAllReports(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
+    }
+
+    /**
+     * Use this method to get all appeals.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+
+    public void getAppeals(String id, String token, Callbacks.Appeal callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+
+        makeRequest(Constants.Routes.getAppeals(), null, body, (json, exception) -> {
+            ServerResponse response = new ServerResponse(json);
+            if (exception == null) {
+                List<Appeal> appeals = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(), JsonArray.class);
+
+                for (JsonElement element : array) {
+                    try {
+                        Appeal appeal = gson.fromJson(element, Appeal.class);
+                        appeals.add(appeal);
+                    }catch (Exception e) {
+                        System.err.println(e.getMessage());
+                    }
+                }
+                callback.make(response, appeals, null);
+            }
+            else {
+                callback.make(response, null, exception);
+            }
+        });
+    }
+
+    public void getAppeals(Callbacks.Appeal callback) {
+        getAppeals(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
+    }
+
+    /**
+     * Use this method to get all defendants.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+
+    public void getDefendants(String id, String token, Callbacks.Defendant callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+
+        makeRequest(Constants.Routes.getDefendants(), null, body, (json, exception) -> {
+            ServerResponse response = new ServerResponse(json);
+            if (exception == null) {
+                List<Defendant> defendants = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(), JsonArray.class);
+
+                for (JsonElement element : array) {
+                    try {
+                        Defendant defendant = gson.fromJson(element, Defendant.class);
+                        defendants.add(defendant);
+                    }catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                callback.make(response, defendants, null);
+            }
+            else {
+                callback.make(response, null, exception);
+            }
+        });
+    }
+
+    public void getDefendants(Callbacks.Defendant callback) {
+        getDefendants(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
+    }
+
+    /**
+     * Use this method to get all landmarks.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+
+    public void getLandmarks(String id, String token, Callbacks.Landmark callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+
+        makeRequest(Constants.Routes.getLandmarks(), null, body, (json, exception) -> {
+            ServerResponse response = new ServerResponse(json);
+            if (exception == null) {
+                List<Landmark> landmarks = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(), JsonArray.class);
+
+                for (JsonElement element : array) {
+                    try {
+                        Landmark landmark = gson.fromJson(element, Landmark.class);
+                        landmarks.add(landmark);
+                    }catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                callback.make(response, landmarks, null);
+            }
+            else {
+                callback.make(response, null, exception);
+            }
+        });
+    }
+
+    public void getLandmarks(Callbacks.Landmark callback) {
+        getLandmarks(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
+    }
+
+    /**
+     * Use this method to get all partnerships.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+
+    public void getPartnerships(String id, String token, Callbacks.Partnership callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+
+        makeRequest(Constants.Routes.getPartnerships(), null, body, (json, exception) -> {
+            ServerResponse response = new ServerResponse(json);
+            if (exception == null) {
+                List<Partnership> partnerships = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(), JsonArray.class);
+
+                for (JsonElement element : array) {
+                    try {
+                        Partnership part = gson.fromJson(element, Partnership.class);
+                        partnerships.add(part);
+                    }catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                callback.make(response, partnerships, null);
+            }
+            else {
+                callback.make(response, null, exception);
+            }
+        });
+    }
+
+    public void getPartnerships(Callbacks.Partnership callback) {
+        getPartnerships(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
+    }
+
+
+    //------------------------------------------------------------------------------------------------
+
+    public void getReportsFromDingoReport() {
+
+    }
+
+    /**
+     * Use this method to get all routes.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+
+    public void getRoutes(String id, String token, Callbacks.Route callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+
+        makeRequest(Constants.Routes.getRoutes(), null, body, (json, exception) -> {
+            ServerResponse response = new ServerResponse(json);
+            if (exception == null) {
+                List<Route> routes = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(), JsonArray.class);
+
+                for (JsonElement element : array) {
+                    try {
+                        Route route = gson.fromJson(element, Route.class);
+                        routes.add(route);
+                    }catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                callback.make(response, routes, null);
+            }
+            else {
+                callback.make(response, null, exception);
+            }
+        });
+    }
+
+    public void getRoutes(Callbacks.Route callback) {
+        getRoutes(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
+    }
+
+    /**
+     * Use this method to get all shifts.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+
+    public void getShifts(String id, String token, Callbacks.Shift callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+
+        makeRequest(Constants.Routes.getShifts(), null, body, (json, exception) -> {
+            ServerResponse response = new ServerResponse(json);
+            if (exception == null) {
+                List<Shift> shifts = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(), JsonArray.class);
+
+                for (JsonElement element : array) {
+                    try {
+                        Shift shift = gson.fromJson(element, Shift.class);
+                        shifts.add(shift);
+                    }catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                callback.make(response, shifts, null);
+            }
+            else {
+                callback.make(response, null, exception);
+            }
+        });
+    }
+
+    public void getShifts(Callbacks.Shift callback) {
+        getShifts(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
+    }
+
+    /**
+     * Use this method to get all vehicle models.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+
+    public void getVehicleModels(String id, String token, Callbacks.VehicleModel callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+
+        makeRequest(Constants.Routes.getVehicleModels(), null, body, (json, exception) -> {
+            ServerResponse response = new ServerResponse(json);
+            if (exception == null) {
+                List<VehicleModel> vehicleModels = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(), JsonArray.class);
+
+                for (JsonElement element : array) {
+                    try {
+                        VehicleModel vehicleModel = gson.fromJson(element, VehicleModel.class);
+                        vehicleModels.add(vehicleModel);
+                    }catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                callback.make(response, vehicleModels, null);
+            }
+            else {
+                callback.make(response, null, exception);
+            }
+        });
+    }
+
+    public void getVehicleModels(Callbacks.VehicleModel callback) {
+        getVehicleModels(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
+    }
+
+    /**
+     * Use this method to get all vehicles.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+
+    public void getVehicles(String id, String token, Callbacks.Vehicle callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+
+        makeRequest(Constants.Routes.getVehicles(), null, body, (json, exception) -> {
+            ServerResponse response = new ServerResponse(json);
+            if (exception == null) {
+                List<Vehicle> vehicles = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(), JsonArray.class);
+
+                for (JsonElement element : array) {
+                    try {
+                        Vehicle vehicle = gson.fromJson(element, Vehicle.class);
+                        vehicles.add(vehicle);
+                    }catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                callback.make(response, vehicles, null);
+            }
+            else {
+                callback.make(response, null, exception);
+            }
+        });
+    }
+
+    public void getVehicles(Callbacks.Vehicle callback) {
+        getVehicles(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
+    }
+
+    /**
+     * Use this method to submit an appeal.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param appeal The appeal to submit.
+     * @param callback The response callback.
+     */
+
+    public void submitAppeal(String id, String token, Appeal appeal, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("appeal", toJson(appeal));
+
+        makeRequest(Constants.Routes.submitAppeal(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    public void submitAppeal(Appeal appeal, Callbacks.General callback) {
+        submitAppeal(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, appeal, callback);
     }
 
 
