@@ -42,7 +42,7 @@ public abstract class MasterMenuController extends UIViewController {
 
     public MasterMenuController() {
         super("/resources/xml/controller_master.fxml");
-        welcomeLabel.setText("Dingo Report");
+        welcomeLabel.setText("Dingo Pro");
     }
 
     @Override

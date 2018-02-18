@@ -26,7 +26,7 @@
 /* Default Button Style*/
 .button-raised {
     -jfx-button-type: RASIED;
-    -fx-background-color: #2ecc71;
+    -fx-background-color: #40739e;
     -fx-pref-width: 128;
     -fx-pref-height: 30;
     -fx-text-fill: WHITE;
@@ -37,7 +37,7 @@
 .button-normal{
     -jfx-button-type: FLAT;
     -fx-background-color: transparent;
-    -fx-text-fill: rgb(26, 188, 156);
+    -fx-text-fill: #40739e;
     -fx-min-width: 64;
 }
 
