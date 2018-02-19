@@ -61,7 +61,7 @@ public class LoginController extends UIViewController {
             String email = userInputField.getText();
             String password = passwordInputField.getText();
 
-            if(EmailValidator.validate(email) && password.length() >= 8) {
+            if(email != null && password != null && EmailValidator.validate(email) && password.length() >= 8) {
                 APIManager.getInstance().login(email, password, (response, id, token, roleId, ex) -> {
                     if (roleId != -1)
                         passwordInputField.setText(null);

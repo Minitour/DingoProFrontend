@@ -39,7 +39,7 @@ public class AddUserController extends UIViewController {
         init(type);
 
         submit.setOnAction(event -> submit());
-        form_title.setText("Create "+type.value.charAt(0)+type.value.substring(1,type.value.length()).toLowerCase());
+        form_title.setText("Create "+type.value);
     }
 
     private void init(UserType type){
@@ -137,10 +137,10 @@ public class AddUserController extends UIViewController {
 
 
     public enum UserType{
-        SUPERUSER("SUPERUSER",0),
-        HIGHRANK("HIGH RANK OFFICER",1),
+        SUPERUSER("Superuser",0),
+        HIGHRANK("High Rank Officer",1),
         OPERATIONAL("Operational Officer",2),
-        ONCALL("ONCALL",3);
+        ONCALL("On Call Officer",3);
 
 
         private String value;
