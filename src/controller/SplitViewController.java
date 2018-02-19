@@ -1,7 +1,6 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SplitPane;
@@ -17,7 +16,7 @@ import java.util.ResourceBundle;
 public class SplitViewController extends UIViewController {
 
     public SplitViewController(){
-        super("/resources/xml/controller_main.fxml");
+        super("/resources/xml/controller_splitview.fxml");
     }
 
     /**
@@ -49,12 +48,6 @@ public class SplitViewController extends UIViewController {
      */
     @FXML
     private SplitPane splitPane;
-
-    /**
-     * The add button.
-     */
-    @FXML
-    protected Button add;
 
     @Override
     public void viewWillLoad(ResourceBundle bundle) {

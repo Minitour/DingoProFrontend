@@ -18,7 +18,7 @@ final public class Constants {
     /**
      * Port
      */
-    public final static String port = "8080";
+    public final static String port = "8123";
 
     /**
      * @return full path
@@ -60,6 +60,12 @@ final public class Constants {
         public static String getVehicleModels() {return getAddress() + "/getVehicleModels"; }
         public static String getVehicles() {return getAddress() + "/getVehicles"; }
         public static String submitAppeal() {return getAddress() + "/submitAppeal"; }
+        public static String createUser() {
+            return getAddress() + "/createUser";
+        }
+        public static String getAccounts() {
+            return getAddress() + "/getAccounts";
+        }
     }
     public static class Codes{
         public static final int SUCCESS=200;

@@ -1,4 +1,4 @@
-package controller;
+package controller.master;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;

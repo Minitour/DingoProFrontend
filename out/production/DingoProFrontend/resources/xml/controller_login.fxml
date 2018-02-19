@@ -43,8 +43,9 @@
                 </image>
             </ImageView>
 
-            <JFXTextField fx:id="userInputField" labelFloat="true" promptText="Username" />
-            <JFXPasswordField fx:id="passwordInputField" labelFloat="true" promptText="Password">
+            <!--todo: remove these later-->
+            <JFXTextField text="root@system.net" fx:id="userInputField" labelFloat="true" promptText="Username" />
+            <JFXPasswordField text="password" fx:id="passwordInputField" labelFloat="true" promptText="Password">
             </JFXPasswordField>
             <VBox alignment="CENTER" spacing="10">
                 <padding>

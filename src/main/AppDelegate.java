@@ -2,11 +2,15 @@ package main;
 
 import controller.LoginController;
 import controller.SubmitAppealController;
+import controller.master.AdminMasterController;
+import controller.master.HighRankOfficerController;
+import controller.master.MasterMenuController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import network.AutoSignIn;
 import ui.UIViewController;
 
 import java.util.Optional;
@@ -66,13 +70,13 @@ public class AppDelegate extends Application {
     }
 
     void onLoginSuccess(int role){
-        UIViewController controller = new UIViewController();
+        MasterMenuController controller = null;
         switch (role){
             case 0:
-                controller = null;
+                controller = new AdminMasterController();
                 break;
             case 1:
-                controller = null;
+                controller = new HighRankOfficerController();
                 break;
             case 2:
                 controller = null;
@@ -80,11 +84,11 @@ public class AppDelegate extends Application {
         }
 
         assert controller != null;
-//        controller.setOnLogout(event -> {
-//            mainStage.close();
-//            AutoSignIn.reset();
-//            loginStage.show();
-//        });
+        controller.setOnLogout(event -> {
+            mainStage.close();
+            AutoSignIn.reset();
+            loginStage.show();
+        });
 
         //loginStage.getScene().setRoot(controller.view);
         loginStage.close();

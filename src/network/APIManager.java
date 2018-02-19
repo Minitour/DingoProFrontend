@@ -99,6 +99,75 @@ public class APIManager {
         updatePassword(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,currentPassword,newPassword,callback);
     }
 
+    public void createUser(String id, String token,Account account,Callbacks.General callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+        body.add("account", toJson(account));
+        makeRequest(Constants.Routes.createUser(), null, body, (json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if (exception == null) {
+                callback.make(r,null);
+            }
+            else {
+                callback.make(r, exception);
+            }
+        });
+    }
+
+    /**
+     * Superuser function
+     * Create any type of user.
+     *
+     * @param account The account containing all the details of the user.
+     * @param callback The callback response.
+     */
+    public void createUser(Account account,Callbacks.General callback){
+        createUser(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,account,callback);
+    }
+
+    /**
+     * Use this method to get all existing accounts (ID,Email,ROLE). context level 0.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+    public void getAccounts(String id,String token,Callbacks.Accounts callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getAccounts(),null,body,(json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<Account> accounts = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        Account account = gson.fromJson(object, Account.class);
+                        accounts.add(account);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,accounts,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
+
+    /**
+     * Use this method to get all existing accounts (ID,Email,ROLE). context level 0.
+     *
+     * @param callback The response callback.
+     */
+    public void getAccounts(Callbacks.Accounts callback){
+        getAccounts(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
 
     /**
      * Use this method to add an appeal to report.
@@ -817,7 +886,7 @@ public class APIManager {
             @Override
             public void onFailure(Call call, IOException e) {
                 if (callback != null)
-                    callback.make(null,e);
+                    Platform.runLater(()-> callback.make(null,e));
                 System.err.println( "onFailure: " + e.toString());
             }
 
@@ -828,9 +897,7 @@ public class APIManager {
                         InputStream res = new ByteArrayInputStream(responseBody.bytes());
 
                         //make thread safe.
-                        Platform.runLater(() -> {
-                            callback.make(res,null);
-                        });
+                        Platform.runLater(() -> callback.make(res,null));
                         responseBody.close();
                     }
                 }

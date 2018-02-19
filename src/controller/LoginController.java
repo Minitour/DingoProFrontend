@@ -70,6 +70,7 @@ public class LoginController extends UIViewController {
                         if(ex != null){
                             dialogView.setTitle("Error");
                             dialogView.setMessage(ex.getLocalizedMessage());
+                            ex.printStackTrace();
                         }else{
                             dialogView.setTitle("Invalid Credentials");
                             dialogView.setMessage("Incorrect email or password. Please try again.");

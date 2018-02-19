@@ -19,13 +19,20 @@ public class OperationalOfficer extends Account {
     @Expose
     private Partnership ptship;
 
-    public OperationalOfficer(String ID, String EMAIL, Integer ROLE_ID, String pin, String name, String phoneExtension, Integer position, Partnership ptship) {
-        super(ID, EMAIL, ROLE_ID);
+    public OperationalOfficer(String ID, String EMAIL, String pin, String name, String phoneExtension, Integer position) {
+        super(ID, EMAIL, 2);
         this.pin = pin;
         this.name = name;
         this.phoneExtension = phoneExtension;
         this.position = position;
-        this.ptship = ptship;
+    }
+
+    public OperationalOfficer(String ID, String EMAIL, String password, String pin, String name, String phoneExtension, Integer position) {
+        super(ID, EMAIL, 2, password);
+        this.pin = pin;
+        this.name = name;
+        this.phoneExtension = phoneExtension;
+        this.position = position;
     }
 
     public void setPin(String pin) {

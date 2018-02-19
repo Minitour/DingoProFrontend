@@ -1,5 +1,7 @@
-package controller;
+package controller.master;
 
+import controller.AppealMenuController;
+import controller.UpdatePasswordController;
 import ui.UIView;
 import ui.UIViewController;
 
@@ -12,7 +14,8 @@ public class HighRankOfficerController extends MasterMenuController {
             new AppealMenuController(),
             null,
             null,
-            null
+            null,
+            new UpdatePasswordController()
     };
 
     @Override
@@ -26,7 +29,8 @@ public class HighRankOfficerController extends MasterMenuController {
                 "View Appeals",
                 "Assign Officers",
                 "Assign Teams",
-                "Assign Routes"
+                "Assign Routes",
+                "Update Password"
         };
     }
 }
