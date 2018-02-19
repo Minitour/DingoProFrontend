@@ -18,6 +18,7 @@ public class AssignOfficerToTeamController extends AssignFromToController<Operat
         super.viewWillLoad(bundle);
         from.setCellFactory(param -> new OfficerCell());
         to.setCellFactory(param -> new TeamCell());
+
     }
 
     public void refresh(){
@@ -38,5 +39,10 @@ public class AssignOfficerToTeamController extends AssignFromToController<Operat
         APIManager.getInstance().assignOfficerToPartnership(from, to, (response, exception) -> {
             //TODO: handle response
         });
+    }
+
+    @Override
+    public String title() {
+        return "Assign Officer To Team";
     }
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import ui.UIView?>
+<fx:root stylesheets="@../../ui/res/css/styles.css" type="ui.UIView" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox spacing="8">
+        <VBox spacing="16">
+            <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+            <VBox spacing="16" styleClass="container">
+                <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                <Label text="Violation Type">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="violationCombo" minWidth="200" promptText="Violation Type" />
+            </VBox>
+
+            <VBox spacing="16" styleClass="container">
+                <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                <Label text="Vehicle Details">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <JFXTextField fx:id="plateField" labelFloat="true" promptText="License Plate" />
+                <JFXTextField fx:id="colorField" labelFloat="true" promptText="Color" />
+                <ComboBox fx:id="modelCombo" minWidth="200" promptText="Vehicle Model" />
+            </VBox>
+        </VBox>
+        <VBox spacing="16" >
+            <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+
+            <VBox spacing="16" styleClass="container">
+                <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                <Label text="Suspect Details">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Label>
+                <JFXTextField fx:id="idField" labelFloat="true" promptText="ID" />
+                <JFXTextField fx:id="licenseField" labelFloat="true" promptText="License Plate" />
+                <JFXTextField fx:id="fnField" labelFloat="true" promptText="Full Name" />
+                <JFXTextField fx:id="addressField" labelFloat="true" promptText="Address" />
+            </VBox>
+
+            <VBox spacing="16" styleClass="container">
+                <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                <Label text="Location">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="locationCombo" minWidth="200" promptText="Location" />
+            </VBox>
+
+        </VBox>
+    </HBox>
+</fx:root>

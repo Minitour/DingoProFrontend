@@ -1,7 +1,6 @@
 package controller.master;
 
-import controller.AppealMenuController;
-import controller.UpdatePasswordController;
+import controller.*;
 import ui.UIView;
 import ui.UIViewController;
 
@@ -12,8 +11,9 @@ public class HighRankOfficerController extends MasterMenuController {
 
     private UIViewController[] controllers = {
             new AppealMenuController(),
-            null,
-            null,
+            new ReportMenuController(),
+            new AssignOfficerToTeamController(),
+            new AssignTeamsToShiftsController(),
             null,
             new UpdatePasswordController()
     };
@@ -26,6 +26,10 @@ public class HighRankOfficerController extends MasterMenuController {
             ((AppealMenuController) controller).refresh();
         }
 
+        if(controller instanceof ReportMenuController){
+            ((ReportMenuController) controller).refresh();
+        }
+
         return controller.view;
     }
 
@@ -33,9 +37,11 @@ public class HighRankOfficerController extends MasterMenuController {
     public String[] itemsForMenu() {
         return new String[]{
                 "View Appeals",
+                "View Reports",
                 "Assign Officers",
                 "Assign Teams",
                 "Assign Routes",
+                "Add Landmarks",
                 "Update Password"
         };
     }

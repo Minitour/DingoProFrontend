@@ -1,8 +1,8 @@
 package view;
 
-import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import model.Report;
 import ui.UIView;
 
@@ -15,28 +15,25 @@ public class TicketCreateView extends UIView {
     private ComboBox violationCombo;
 
     @FXML
-    private JFXTextField plateField;
+    private TextField plateField;
 
     @FXML
-    private JFXTextField colorField;
+    private TextField colorField;
 
     @FXML
     private ComboBox modelCombo;
 
     @FXML
-    private JFXTextField idField;
+    private TextField idField;
 
     @FXML
-    private JFXTextField licenseField;
+    private TextField licenseField;
 
     @FXML
-    private JFXTextField fnField;
+    private TextField fnField;
 
     @FXML
-    private JFXTextField lnField;
-
-    @FXML
-    private JFXTextField addressField;
+    private TextField addressField;
 
     @FXML
     private ComboBox locationCombo;
@@ -48,9 +45,30 @@ public class TicketCreateView extends UIView {
 
     public TicketCreateView(Report report){
         this();
+        violationCombo.getItems().add(report.getViolationType());
+        violationCombo.getSelectionModel().select(0);
 
-        //TODO: complete setup
+        //set vehicle data
+        plateField.setText(report.getVehicle().getLicensePlate());
+        colorField.setText(report.getVehicle().getColorHEX());
+        modelCombo.getItems().add(report.getVehicle().getModel());
+        modelCombo.getSelectionModel().select(0);
 
+        //set suspect data
+        idField.setText(report.getDefendant().getId().toString());
+        licenseField.setText(report.getDefendant().getDrivingLicense());
+        fnField.setText(report.getDefendant().getName());
+        addressField.setText(report.getDefendant().getAddress());
+        locationCombo.getItems().add(report.getOrderNum().getLatitude() + ", " + report.getOrderNum().getLongitude());
+        locationCombo.getSelectionModel().select(0);
+
+        //lockdown
+        plateField.setEditable(false);
+        colorField.setEditable(false);
+        idField.setEditable(false);
+        licenseField.setEditable(false);
+        fnField.setEditable(false);
+        addressField.setEditable(false);
     }
 
 

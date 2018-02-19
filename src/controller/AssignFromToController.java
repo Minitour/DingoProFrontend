@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import ui.UIViewController;
 
@@ -21,6 +22,9 @@ public class AssignFromToController<F,T> extends UIViewController {
     @FXML
     protected Button assign;
 
+    @FXML
+    private Label titleLabel;
+
     public AssignFromToController() {
         super("/resources/xml/controller_add_from_to.fxml");
         assign.setOnAction(event -> {
@@ -31,6 +35,8 @@ public class AssignFromToController<F,T> extends UIViewController {
                 e.printStackTrace();
             }
         });
+
+        titleLabel.setText(title());
     }
 
     protected void onAssign(F from,T to){

@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose;
 public class Defendant{
 
     @Expose
-    private Integer id;
+    private Integer ID;
 
     @Expose
     private String drivingLicense;
@@ -25,7 +25,7 @@ public class Defendant{
 
 
     public void setId(Integer id) {
-        this.id = id;
+        this.ID = id;
     }
 
     public void setDrivingLicense(String drivingLicense) {
@@ -41,7 +41,7 @@ public class Defendant{
     }
 
     public Integer getId() {
-        return id;
+        return ID;
     }
 
     public String getDrivingLicense() {
