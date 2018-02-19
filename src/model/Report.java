@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose;
 
 import java.util.Date;
 
-public abstract class Report {
+public class Report {
 
     @Expose
     private String alphaNum;
@@ -29,6 +29,21 @@ public abstract class Report {
 
     @Expose
     private Appeal appeal;
+
+    @Expose
+    private Partnership part;
+
+    @Expose
+    private Route route;
+
+    @Expose
+    private Landmark orderNum;
+
+    @Expose
+    private String evidenceLink;
+
+    @Expose
+    private Integer report_type;
 
     public Report(String alphaNum, Date violationDate, String description, String status, String violationType, Defendant defendant, Vehicle vehicle, Appeal appeal) {
         setAlphaNum(alphaNum);
@@ -104,4 +119,45 @@ public abstract class Report {
     public Appeal getAppeal() {
         return appeal;
     }
+
+    public Partnership getPart() {
+        return part;
+    }
+
+    public void setPart(Partnership part) {
+        this.part = part;
+    }
+
+    public Route getRoute() {
+        return route;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
+    }
+
+    public Landmark getOrderNum() {
+        return orderNum;
+    }
+
+    public void setOrderNum(Landmark orderNum) {
+        this.orderNum = orderNum;
+    }
+
+    public String getEvidenceLink() {
+        return evidenceLink;
+    }
+
+    public void setEvidenceLink(String evidenceLink) {
+        this.evidenceLink = evidenceLink;
+    }
+
+    public Integer getReport_type() {
+        return report_type;
+    }
+
+    public void setReport_type(Integer report_type) {
+        this.report_type = report_type;
+    }
+
 }
