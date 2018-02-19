@@ -30,4 +30,12 @@ public class VehicleModel {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "VehicleModel{" +
+                "modelNum='" + modelNum + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

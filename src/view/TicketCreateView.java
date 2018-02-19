@@ -39,7 +39,7 @@ public class TicketCreateView extends UIView {
     private ComboBox locationCombo;
 
     public TicketCreateView(){
-        super("/resources/xml/ticket_create.fxml");
+        super("/resources/xml/form_ticket_create.fxml");
 
     }
 
