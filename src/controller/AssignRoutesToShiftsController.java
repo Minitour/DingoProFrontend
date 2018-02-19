@@ -1,29 +1,29 @@
 package controller;
 
-import model.Partnership;
+import model.Route;
 import model.Shift;
 import network.APIManager;
+import view.RouteCell;
 import view.ShiftCell;
-import view.TeamCell;
 
 import java.util.ResourceBundle;
 
 /**
  * Created By Tony on 18/02/2018
  */
-public class AssignTeamsToShiftsController extends AssignFromToController<Partnership, Shift> {
+public class AssignRoutesToShiftsController extends AssignFromToController<Route, Shift> {
 
     @Override
     public void viewWillLoad(ResourceBundle bundle) {
         super.viewWillLoad(bundle);
-        from.setCellFactory(param -> new TeamCell());
+        from.setCellFactory(param -> new RouteCell());
         to.setCellFactory(param -> new ShiftCell());
     }
 
     public void refresh(){
-        APIManager.getInstance().getPartnerships((response, partnerships, exception) -> {
+        APIManager.getInstance().getRoutes((response, routes, exception) -> {
             from.getItems().clear();
-            from.getItems().addAll(partnerships);
+            from.getItems().addAll(routes);
         });
 
         APIManager.getInstance().getShifts((response, shifts, exception) -> {
@@ -33,9 +33,9 @@ public class AssignTeamsToShiftsController extends AssignFromToController<Partne
     }
 
     @Override
-    protected void onAssign(Partnership from,Shift  to) {
+    protected void onAssign(Route from,Shift  to) {
         super.onAssign(from, to);
-        APIManager.getInstance().assignPartnershipToShift(from,to,(response, exception) -> {
+        APIManager.getInstance().assignRouteToShift(from,to,(response, exception) -> {
             //TODO: handle completion
         });
     }

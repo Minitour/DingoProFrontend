@@ -860,6 +860,32 @@ public class APIManager {
         exportReportByDate(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, from, to, callback);
     }
 
+    public void exportAppealByDate(String id,String token,Date from,Date to,Callbacks.Jasper callback) {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("id", id);
+        headers.put("sessionToken", token);
+        headers.put("from", "" + from.getTime());
+        headers.put("to", "" + to.getTime());
+        requestResource(Constants.Routes.exportAppeals(), headers, (stream, e) -> {
+            if (e == null) {
+                try {
+                    byte[] bytes = ByteStreams.toByteArray(stream);
+                    JasperPrint print = deserialize(bytes);
+                    callback.make(print, null);
+                } catch (IOException | ClassNotFoundException e1) {
+                    e1.printStackTrace();
+                    callback.make(null, e1);
+                }
+            } else {
+                callback.make(null, e);
+            }
+        });
+    }
+
+    public void exportAppealByDate(Date from,Date to,Callbacks.Jasper callback) {
+        exportReportByDate(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, from, to, callback);
+    }
+
 
 
 

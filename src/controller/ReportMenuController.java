@@ -40,7 +40,7 @@ public class ReportMenuController extends SplitViewController{
 
     @Override
     public String title() {
-        return "Reports";
+        return "Tickets";
     }
 
 }

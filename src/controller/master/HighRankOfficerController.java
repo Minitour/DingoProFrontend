@@ -12,8 +12,11 @@ public class HighRankOfficerController extends MasterMenuController {
     private UIViewController[] controllers = {
             new AppealMenuController(),
             new ReportMenuController(),
+            new GetAppealsReportController(),
+            new GetTicketsReportController(),
             new AssignOfficerToTeamController(),
             new AssignTeamsToShiftsController(),
+            null,
             null,
             new UpdatePasswordController()
     };
@@ -38,6 +41,8 @@ public class HighRankOfficerController extends MasterMenuController {
         return new String[]{
                 "View Appeals",
                 "View Reports",
+                "Tickets Report",
+                "Appeals Report",
                 "Assign Officers",
                 "Assign Teams",
                 "Assign Routes",

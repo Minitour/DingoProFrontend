@@ -33,9 +33,6 @@ public class VehicleModel {
 
     @Override
     public String toString() {
-        return "VehicleModel{" +
-                "modelNum='" + modelNum + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+        return "[" + modelNum + "] " + name ;
     }
 }
