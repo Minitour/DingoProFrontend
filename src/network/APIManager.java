@@ -336,7 +336,7 @@ public class APIManager {
      * @param callback The response callback.
      */
 
-    public void createOfficerReport(String id, String token, OfficerReport report, Callbacks.General callback) {
+    public void createOfficerReport(String id, String token, Report report, Callbacks.General callback) {
         JsonObject body = new JsonObject();
         body.addProperty("id", id);
         body.addProperty("sessionToken", token);
@@ -347,7 +347,7 @@ public class APIManager {
         });
     }
 
-    public void createOfficerReport(OfficerReport report, Callbacks.General callback) {
+    public void createOfficerReport(Report report, Callbacks.General callback) {
         createOfficerReport(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, report, callback);
     }
 
@@ -406,7 +406,7 @@ public class APIManager {
      * @param callback The response callback.
      */
 
-    public void createVolunteerReportFromDingoReport(String id, String token, VolunteerReport report, Callbacks.General callback) {
+    public void createVolunteerReportFromDingoReport(String id, String token, Report report, Callbacks.General callback) {
         JsonObject body = new JsonObject();
         body.addProperty("id", id);
         body.addProperty("sessionToken", token);
@@ -417,7 +417,7 @@ public class APIManager {
         });
     }
 
-    public void createVolunteerReportFromDingoReport(VolunteerReport report, Callbacks.General callback) {
+    public void createVolunteerReportFromDingoReport(Report report, Callbacks.General callback) {
         createVolunteerReportFromDingoReport(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, report, callback);
     }
 
