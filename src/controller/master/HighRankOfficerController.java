@@ -33,6 +33,14 @@ public class HighRankOfficerController extends MasterMenuController {
             ((ReportMenuController) controller).refresh();
         }
 
+        if (controller instanceof AssignOfficerToTeamController){
+            ((AssignOfficerToTeamController) controller).refresh();
+        }
+
+        if (controller instanceof AssignTeamsToShiftsController){
+            ((AssignTeamsToShiftsController) controller).refresh();
+        }
+
         return controller.view;
     }
 

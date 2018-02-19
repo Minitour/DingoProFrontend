@@ -19,6 +19,6 @@ public class TeamCellView extends UIView {
     public TeamCellView(Partnership item) {
         super("/resources/xml/list_item_5.fxml");
         teamId.setText("Team #"+item.getPtshipNum());
-        reports.setText("Assigned reports: "+item.getOfficers().size());
+        reports.setText("Team Size"+item.getOfficers().size());
     }
 }

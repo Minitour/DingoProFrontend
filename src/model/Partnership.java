@@ -3,7 +3,6 @@ package model;
 import com.google.gson.annotations.Expose;
 
 import java.util.Collection;
-import java.util.Collections;
 
 public class Partnership {
 
@@ -35,7 +34,7 @@ public class Partnership {
     }
 
     public Collection<OperationalOfficer> getOfficers() {
-        return Collections.unmodifiableCollection(officers);
+        return officers;
     }
 }
 
