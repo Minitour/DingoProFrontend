@@ -20,7 +20,13 @@ public class HighRankOfficerController extends MasterMenuController {
 
     @Override
     public UIView viewForIndexAt(int index) {
-        return controllers[index].view;
+        UIViewController controller =  controllers[index];
+
+        if(controller instanceof AppealMenuController){
+            ((AppealMenuController) controller).refresh();
+        }
+
+        return controller.view;
     }
 
     @Override
