@@ -673,6 +673,21 @@ public class APIManager {
         getOfficers(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
 
+    public void assignTeamToShiftToRoute(String id, String token, Partnership partnership, Shift shift, Route route, Callbacks.General callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("partnership",toJson(partnership));
+        body.add("shift",toJson(shift));
+        body.add("route",toJson(route));
+
+        makeRequest(Constants.Routes.assignPartnershipToShiftToRoute(), null, body, (json, exception) ->
+                callback.make(new ServerResponse(json), exception));
+    }
+
+    public void assignTeamToShiftToRoute(Partnership partnership, Shift shift, Route route, Callbacks.General callback){
+        assignTeamToShiftToRoute(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,partnership,shift,route,callback);
+    }
 
     //------------------------------------------------------------------------------------------------
 

@@ -95,6 +95,11 @@ public class AdminMasterController extends MasterMenuController{
 
     @Override
     public String[] itemsForMenu() {
-        return new String[]{"Add User","Active Users","Update Password"};
+        return new String[]{
+                "Add User",
+                "Active Users",
+                "Export/Import",
+                "Update Password"
+        };
     }
 }

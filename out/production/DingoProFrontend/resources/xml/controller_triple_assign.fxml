@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import ui.UIView?>
+
+<UIView fx:id="root" stylesheets="@../../ui/res/css/styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox>
+        <VBox spacing="8" alignment="CENTER">
+            <Label fx:id="titleLabel" text="Assign X to Y">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font></Label>
+            <HBox alignment="CENTER" spacing="8" styleClass="container" VBox.vgrow="ALWAYS">
+                <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                <VBox spacing="8">
+                    <Label fx:id="label1" text="Title 1">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font></Label>
+                    <ListView fx:id="list1" minWidth="300" />
+                </VBox>
+
+                <VBox spacing="8">
+                    <Label fx:id="label2" text="Title 2">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font></Label>
+                    <ListView fx:id="list2" minWidth="300" />
+                </VBox>
+
+                <VBox spacing="8">
+                    <Label fx:id="label3" text="Title 3">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font></Label>
+                    <ListView fx:id="list3" minWidth="300" />
+                </VBox>
+            </HBox>
+
+            <JFXButton fx:id="assign" minWidth="60" prefWidth="60" styleClass="button-raised" text="Assign" />
+            <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+        </VBox>
+    </HBox>
+</UIView>

@@ -40,6 +40,7 @@ final public class Constants {
         public static String addLandmarkToRoute() {return getAddress() + "/addLandmarkToRoute"; }
         public static String assignOfficerToPartnership() {return getAddress() + "/assignOfficerToPartnership"; }
         public static String assignPartnershipToShift() {return getAddress() + "/assignPartnershipToShift"; }
+        public static String assignPartnershipToShiftToRoute() { return getAddress() + "/assignPartnershipToShiftToRoute";}
         public static String assignRouteToShift() {return getAddress() + "/assignRouteToShift"; }
         public static String createDefendant() {return getAddress() + "/createDefendant" ;}
         public static String createOfficerReport() {return getAddress() + "/createOfficerReport" ;}

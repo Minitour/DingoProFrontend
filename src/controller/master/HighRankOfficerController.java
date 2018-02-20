@@ -15,8 +15,7 @@ public class HighRankOfficerController extends MasterMenuController {
             new GetAppealsReportController(),
             new GetTicketsReportController(),
             new AssignOfficerToTeamController(),
-            new AssignTeamsToShiftsController(),
-            new AssignRoutesToShiftsController(),
+            new AssignTripleController(),
             new AddLandmarkController(),
             new ManageTeamsController(),
             new ManageRoutesController(),
@@ -64,6 +63,10 @@ public class HighRankOfficerController extends MasterMenuController {
             ((ManageShiftsController) controller).refresh();
         }
 
+        if(controller instanceof AssignTripleController){
+            ((AssignTripleController) controller).refresh();
+        }
+
         return controller.view;
     }
 
@@ -75,8 +78,7 @@ public class HighRankOfficerController extends MasterMenuController {
                 "Tickets Report",
                 "Appeals Report",
                 "Assign Officers",
-                "Assign Teams",
-                "Assign Routes",
+                "Assign Shifts",
                 "Add Landmarks",
                 "Manage Teams",
                 "Manage Routes",
