@@ -13,8 +13,7 @@ public class OnCallOfficerController extends MasterMenuController {
             new AppealMenuController(),
             new ReportMenuController(),
             new AssignOfficerToTeamController(),
-            new AssignTeamsToShiftsController(),
-            new AssignRoutesToShiftsController(),
+            new AssignTripleController(),
             new AddLandmarkController(),
             new ManageTeamsController(),
             new ManageRoutesController(),
@@ -38,13 +37,6 @@ public class OnCallOfficerController extends MasterMenuController {
             ((AssignOfficerToTeamController) controller).refresh();
         }
 
-        if (controller instanceof AssignTeamsToShiftsController){
-            ((AssignTeamsToShiftsController) controller).refresh();
-        }
-
-        if(controller instanceof AssignRoutesToShiftsController){
-            ((AssignRoutesToShiftsController) controller).refresh();
-        }
 
         if(controller instanceof AddLandmarkController){
             ((AddLandmarkController) controller).refresh();
@@ -71,8 +63,7 @@ public class OnCallOfficerController extends MasterMenuController {
                 "View Appeals",
                 "View Reports",
                 "Assign Officers",
-                "Assign Teams",
-                "Assign Routes",
+                "Assign Shifts",
                 "Add Landmarks",
                 "Manage Teams",
                 "Manage Routes",

@@ -1,5 +1,6 @@
 package controller;
 
+import com.jfoenix.controls.JFXSnackbar;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
@@ -32,7 +33,14 @@ public class CreateReportController extends UIViewController {
         create.setOnAction(event -> {
             Report report = ticketCreateView.getReport();
             APIManager.getInstance().createReport(report, (response, exception) -> {
-                ticketCreateView.reset();
+                JFXSnackbar bar = new JFXSnackbar(this.view);
+                if (response.isOK()) {
+                    bar.enqueue(new JFXSnackbar.SnackbarEvent("Report Created"));
+                    ticketCreateView.reset();
+                }
+                else
+                    bar.enqueue(new JFXSnackbar.SnackbarEvent("Something went wrong: "+response.getMessage()));
+
             });
         });
 

@@ -42,4 +42,9 @@ public class AssignFromToController<F,T> extends UIViewController {
     protected void onAssign(F from,T to){
 
     }
+
+    protected void reset(){
+        from.getSelectionModel().clearSelection();
+        to.getSelectionModel().clearSelection();
+    }
 }

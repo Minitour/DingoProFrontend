@@ -1,5 +1,6 @@
 package controller;
 
+import com.jfoenix.controls.JFXSnackbar;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -39,7 +40,12 @@ public class ManageRoutesController extends UIViewController {
         dialogView.setNegativeEventHandler(event -> dialogView.close());
         dialogView.setPostiveEventHandler(event -> {
             APIManager.getInstance().createRoute((response, exception) -> {
-                refresh();
+                JFXSnackbar bar = new JFXSnackbar(view);
+                if(response.isOK()) {
+                    refresh();
+                    bar.enqueue(new JFXSnackbar.SnackbarEvent("Route Created!"));
+                }else
+                    bar.enqueue(new JFXSnackbar.SnackbarEvent("Something went wrong!"));
             });
             dialogView.close();
         });
@@ -71,6 +77,7 @@ public class ManageRoutesController extends UIViewController {
             @Override
             public void reloadData() {
                 APIManager.getInstance().getRoutes((response, r, ex) -> {
+
                     if(ex==null){
                         if(response.isOK()){
                             try {

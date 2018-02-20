@@ -1,5 +1,6 @@
 package controller;
 
+import com.jfoenix.controls.JFXSnackbar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -41,10 +42,16 @@ public class AddLandmarkController extends UIViewController {
         Route r = comboBox.getSelectionModel().getSelectedItem();
         Landmark landmark = new Landmark(r,r.getLandmarks().size() + 1,plannedArrival.getText(),lat.getText(),lon.getText());
         APIManager.getInstance().addLandmarkToRoute(landmark, r, (response, exception) -> {
-            plannedArrival.setText(null);
-            lat.setText(null);
-            lon.setText(null);
-            refresh();
+            JFXSnackbar bar = new JFXSnackbar(this.view);
+            if (response.isOK()) {
+                bar.enqueue(new JFXSnackbar.SnackbarEvent("Landmark Created"));
+                plannedArrival.setText(null);
+                lat.setText(null);
+                lon.setText(null);
+                refresh();
+            }
+            else
+                bar.enqueue(new JFXSnackbar.SnackbarEvent("Something went wrong: "+response.getMessage()));
         });
     }
 

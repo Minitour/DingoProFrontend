@@ -1,5 +1,6 @@
 package controller;
 
+import com.jfoenix.controls.JFXSnackbar;
 import model.Partnership;
 import model.Shift;
 import network.APIManager;
@@ -36,7 +37,7 @@ public class AssignTeamsToShiftsController extends AssignFromToController<Partne
     protected void onAssign(Partnership from,Shift  to) {
         super.onAssign(from, to);
         APIManager.getInstance().assignPartnershipToShift(from,to,(response, exception) -> {
-            //TODO: handle completion
+
         });
     }
 }

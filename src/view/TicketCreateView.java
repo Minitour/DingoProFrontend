@@ -144,7 +144,12 @@ public class TicketCreateView extends UIFormView {
 
     @Override
     public void reset() {
-
+        plateField.setText(null);
+        colorField.setText(null);
+        idField.setText(null);
+        licenseField.setText(null);
+        fnField.setText(null);
+        addressField.setText(null);
     }
 
     @Override

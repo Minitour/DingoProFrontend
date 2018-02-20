@@ -1,5 +1,6 @@
 package controller;
 
+import com.jfoenix.controls.JFXSnackbar;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -46,7 +47,12 @@ public class ManageShiftsController extends UIViewController {
 
                 Shift shift = shiftFormView.getShift();
                 APIManager.getInstance().createShift(shift,(response, exception) -> {
-                    refresh();
+                    JFXSnackbar bar = new JFXSnackbar(view);
+                    if(response.isOK()) {
+                        refresh();
+                        bar.enqueue(new JFXSnackbar.SnackbarEvent("Shift Created!"));
+                    }else
+                        bar.enqueue(new JFXSnackbar.SnackbarEvent("Something went wrong!"));
                 });
                 return true;
             }

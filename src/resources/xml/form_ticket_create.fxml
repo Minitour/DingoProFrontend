@@ -70,7 +70,7 @@
                             </font>
                         </Label>
                         <JFXTextField fx:id="idField" labelFloat="true" promptText="ID" />
-                        <JFXTextField fx:id="licenseField" labelFloat="true" promptText="License Plate" />
+                        <JFXTextField fx:id="licenseField" labelFloat="true" promptText="License Number" />
                         <JFXTextField fx:id="fnField" labelFloat="true" promptText="Full Name" />
                         <JFXTextField fx:id="addressField" labelFloat="true" promptText="Address" />
                     </VBox>
