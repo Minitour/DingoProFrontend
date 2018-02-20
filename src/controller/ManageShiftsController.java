@@ -41,6 +41,9 @@ public class ManageShiftsController extends UIViewController {
         dialogView.delegate(new DynamicDialog.DialogDelegate() {
             @Override
             public boolean onDone(DynamicDialog dialog) {
+                if(!shiftFormView.isValid())
+                    return false;
+
                 Shift shift = shiftFormView.getShift();
                 APIManager.getInstance().createShift(shift,(response, exception) -> {
                     refresh();

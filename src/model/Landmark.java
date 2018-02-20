@@ -68,4 +68,8 @@ public class Landmark {
         return longitude;
     }
 
+    @Override
+    public String toString() {
+        return "Route["+route.getSerialNum()+"] Landmark["+orderNum+"] ["+latitude + ","+longitude+"]";
+    }
 }

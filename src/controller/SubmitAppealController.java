@@ -9,6 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import model.Appeal;
 import model.Defendant;
+import model.Report;
 import network.APIManager;
 import ui.UIViewController;
 import view.DialogView;
@@ -52,7 +53,7 @@ public class SubmitAppealController extends UIViewController {
             Defendant defendant = new Defendant(Integer.parseInt(id.getText()),null,null,null);
             Appeal appeal = new Appeal(0,reason.getText(),new Date());
             appeal.setDefendant(defendant);
-            //TODO: set report id on appeal
+            appeal.setReport(new Report(idField.getText()));
             submitAppeal(appeal);
         });
 

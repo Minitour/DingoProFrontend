@@ -56,6 +56,10 @@ public class Report {
         setAppeal(appeal);
     }
 
+    public Report(String alphaNum) {
+        this.alphaNum = alphaNum;
+    }
+
     public void setAlphaNum(String alphaNum) {
         this.alphaNum = alphaNum;
     }

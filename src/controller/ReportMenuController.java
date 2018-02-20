@@ -4,8 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import model.Report;
 import network.APIManager;
+import ui.UIView;
+import view.DingoTicketView;
 import view.cells.ReportCell;
-import view.cells.TicketCreateView;
+import view.TicketCreateView;
 
 import java.util.ResourceBundle;
 
@@ -33,7 +35,12 @@ public class ReportMenuController extends SplitViewController{
     @Override
     protected void onListItemChanged(int value) {
         Report report = listView.getItems().get(value);
-        TicketCreateView view = new TicketCreateView(report);
+        UIView view;
+        if(report.getReport_type() == 1) {
+            view = new TicketCreateView(report);
+        }else{
+            view = new DingoTicketView(report);
+        }
 
         showView(view);
     }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import ui.UIView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<UIView fx:id="root" stylesheets="@../../ui/res/css/styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox spacing="8">
+        <Pane fx:id="holder"/>
+        <JFXButton fx:id="create" text="Create Ticket" styleClass="button-raised"/>
+        <JFXButton fx:id="reset" text="Reset" styleClass="button-raised"/>
+        <padding><Insets top="8" right="8" left="8" bottom="8"/></padding>
+    </VBox>
+</UIView>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import ui.UIView?>
+<fx:root stylesheets="@../../ui/res/css/styles.css" type="ui.UIView" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane>
+        <VBox spacing="8" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <padding>
+                <Insets bottom="8" left="8" right="8" top="8" />
+            </padding>
+            <Label fx:id="form_title" text="New Report">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+            <Label fx:id="form_subtitle" text="Subtitle">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <HBox fx:id="hbox_parent" spacing="8" VBox.vgrow="ALWAYS">
+                <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                <VBox maxWidth="600" minWidth="300" prefHeight="${hbox_parent.height}" styleClass="container" HBox.hgrow="ALWAYS" spacing="10">
+                    <padding><Insets left="8" right="8" top="8" bottom="8" /></padding>
+                    <VBox spacing="8">
+                        <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                        <Label text="Vehicle Details">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <VBox spacing="8">
+                            <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                            <Label fx:id="vd_licensePlate" text="License Plate" />
+                            <Label fx:id="vd_carModel" text="Car Model" />
+                            <Label fx:id="vd_carColor" text="Car Color" />
+                        </VBox>
+                    </VBox>
+                    <TextArea fx:id="description" minHeight="100" promptText="Description" />
+                    <TextArea fx:id="evidenceLink" minHeight="30" promptText="Evidence" />
+                </VBox>
+
+            </HBox>
+        </VBox>
+    </AnchorPane>
+</fx:root>

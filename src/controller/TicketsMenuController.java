@@ -3,7 +3,7 @@ package controller;
 import model.Report;
 import ui.UIView;
 import view.cells.TicketCell;
-import view.cells.TicketCreateView;
+import view.TicketCreateView;
 
 import java.util.List;
 import java.util.ResourceBundle;

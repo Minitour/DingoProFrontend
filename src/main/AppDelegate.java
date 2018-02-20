@@ -2,9 +2,7 @@ package main;
 
 import controller.LoginController;
 import controller.SubmitAppealController;
-import controller.master.AdminMasterController;
-import controller.master.HighRankOfficerController;
-import controller.master.MasterMenuController;
+import controller.master.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -79,7 +77,10 @@ public class AppDelegate extends Application {
                 controller = new HighRankOfficerController();
                 break;
             case 2:
-                controller = null;
+                controller = new OperationalOfficerMasterController();
+                break;
+            case 3:
+                controller = new OnCallOfficerController();
                 break;
         }
 
