@@ -18,7 +18,8 @@ public class HighRankOfficerController extends MasterMenuController {
             new AssignTeamsToShiftsController(),
             new AssignRoutesToShiftsController(),
             new AddLandmarkController(),
-            null,
+            new ManageTeamsController(),
+            new ManageRoutesController(),
             null,
             new UpdatePasswordController()
     };
@@ -51,6 +52,14 @@ public class HighRankOfficerController extends MasterMenuController {
             ((AddLandmarkController) controller).refresh();
         }
 
+        if(controller instanceof ManageTeamsController){
+            ((ManageTeamsController) controller).refresh();
+        }
+
+        if(controller instanceof ManageRoutesController){
+            ((ManageRoutesController) controller).refresh();
+        }
+
         return controller.view;
     }
 
@@ -65,6 +74,7 @@ public class HighRankOfficerController extends MasterMenuController {
                 "Assign Teams",
                 "Assign Routes",
                 "Add Landmarks",
+                "Manage Teams",
                 "Manage Routes",
                 "Manage Shifts",
                 "Update Password"

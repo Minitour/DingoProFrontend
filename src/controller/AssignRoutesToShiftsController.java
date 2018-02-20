@@ -3,8 +3,8 @@ package controller;
 import model.Route;
 import model.Shift;
 import network.APIManager;
-import view.RouteCell;
-import view.ShiftCell;
+import view.cells.RouteCell;
+import view.cells.ShiftCell;
 
 import java.util.ResourceBundle;
 

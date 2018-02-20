@@ -1,4 +1,4 @@
-package view;
+package view.cells;
 
 import model.Shift;
 import ui.UIListViewCell;

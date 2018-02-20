@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import model.Appeal;
 import network.APIManager;
-import view.AppealCell;
+import view.cells.AppealCell;
 import view.AppealView;
 
 import java.util.ResourceBundle;

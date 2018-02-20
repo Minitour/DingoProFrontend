@@ -3,8 +3,8 @@ package controller;
 import model.Partnership;
 import model.Shift;
 import network.APIManager;
-import view.ShiftCell;
-import view.TeamCell;
+import view.cells.ShiftCell;
+import view.cells.TeamCell;
 
 import java.util.ResourceBundle;
 

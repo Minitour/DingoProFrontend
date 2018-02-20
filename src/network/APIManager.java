@@ -356,22 +356,34 @@ public class APIManager {
      *
      * @param id The id of the current user.
      * @param token The session token of the user.
-     * @param part The partnership to create.
      * @param callback The response callback.
      */
-    public void createPartnership(String id, String token, Partnership part, Callbacks.General callback) {
+    public void createPartnership(String id, String token, Callbacks.General callback) {
         JsonObject body = new JsonObject();
         body.addProperty("id", id);
         body.addProperty("sessionToken", token);
-        body.add("partnership", toJson(part));
 
         makeRequest(Constants.Routes.createPartnership(), null, body, (json, exception) -> {
             callback.make(new ServerResponse(json), exception);
         });
     }
 
-    public void createPartnership(Partnership part, Callbacks.General callback) {
-        createPartnership(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, part, callback);
+    public void createPartnership(Callbacks.General callback) {
+        createPartnership(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
+    }
+
+    public void createRoute(String id, String token, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+
+        makeRequest(Constants.Routes.createRoute(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    public void createRoute(Callbacks.General callback) {
+        createRoute(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, callback);
     }
 
 
@@ -964,6 +976,7 @@ public class APIManager {
 
 
         //make request
+        System.out.println("SENDING TO " + url);
         System.out.println("SENDING: "+jsonBody.toString());
         makeOkHttpRequest(request,callback);
     }
@@ -1030,4 +1043,6 @@ public class APIManager {
         ObjectInputStream is = new ObjectInputStream(in);
         return (T)is.readObject();
     }
+
+
 }

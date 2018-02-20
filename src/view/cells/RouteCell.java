@@ -1,4 +1,4 @@
-package view;
+package view.cells;
 
 import model.Route;
 import ui.UIListViewCell;

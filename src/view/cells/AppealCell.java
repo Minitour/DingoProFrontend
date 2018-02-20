@@ -1,4 +1,4 @@
-package view;
+package view.cells;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;

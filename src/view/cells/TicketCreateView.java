@@ -1,4 +1,4 @@
-package view;
+package view.cells;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;

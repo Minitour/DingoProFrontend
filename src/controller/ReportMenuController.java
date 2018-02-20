@@ -4,8 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import model.Report;
 import network.APIManager;
-import view.ReportCell;
-import view.TicketCreateView;
+import view.cells.ReportCell;
+import view.cells.TicketCreateView;
 
 import java.util.ResourceBundle;
 

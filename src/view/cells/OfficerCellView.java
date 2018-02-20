@@ -1,19 +1,19 @@
-package view;
+package view.cells;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import model.Route;
+import model.OperationalOfficer;
 import ui.UIView;
 
 /**
  * Created By Tony on 17/02/2018
  */
-public class RouteCellView extends UIView {
+public class OfficerCellView extends UIView {
     @FXML
     private Label menu;
 
-    public RouteCellView(Route item) {
+    public OfficerCellView(OperationalOfficer item) {
         super("/resources/xml/list_item.fxml");
-        menu.setText(item.getSerialNum().toString());
+        menu.setText(item.getName());
     }
 }

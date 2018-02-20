@@ -2,8 +2,8 @@ package controller;
 
 import model.Report;
 import ui.UIView;
-import view.TicketCell;
-import view.TicketCreateView;
+import view.cells.TicketCell;
+import view.cells.TicketCreateView;
 
 import java.util.List;
 import java.util.ResourceBundle;

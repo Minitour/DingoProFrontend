@@ -3,8 +3,8 @@ package controller;
 import model.OperationalOfficer;
 import model.Partnership;
 import network.APIManager;
-import view.OfficerCell;
-import view.TeamCell;
+import view.cells.OfficerCell;
+import view.cells.TeamCell;
 
 import java.util.ResourceBundle;
 

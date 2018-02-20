@@ -3,11 +3,15 @@ package model;
 import com.google.gson.annotations.Expose;
 
 import java.util.Collection;
+import java.util.Date;
 
 public class Route {
 
     @Expose
     private Integer serialNum;
+
+    @Expose
+    private Date creationDate;
 
     @Expose
     private Collection<Landmark> landmarks;
@@ -31,6 +35,14 @@ public class Route {
 
     public void setLandmarks(Collection<Landmark> landmarks) {
         this.landmarks = landmarks;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
     @Override
