@@ -410,6 +410,21 @@ public class APIManager {
         createReport(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, report, callback);
     }
 
+    public void createShift(String id, String token, Shift shift, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id", id);
+        body.addProperty("sessionToken", token);
+        body.add("shift", toJson(shift));
+
+        makeRequest(Constants.Routes.createShift(), null, body, (json, exception) -> {
+            callback.make(new ServerResponse(json), exception);
+        });
+    }
+
+    public void createShift(Shift shift, Callbacks.General callback) {
+        createShift(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, shift, callback);
+    }
+
     /**
      * Use this method to create a volunteer report.
      * @param id The id of the current user.
@@ -1043,6 +1058,5 @@ public class APIManager {
         ObjectInputStream is = new ObjectInputStream(in);
         return (T)is.readObject();
     }
-
 
 }

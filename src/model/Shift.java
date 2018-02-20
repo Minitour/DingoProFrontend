@@ -21,7 +21,7 @@ public class Shift {
         setType(type);
     }
 
-    public void setShiftCode(int shiftCode) {
+    public void setShiftCode(Integer shiftCode) {
         this.shiftCode = shiftCode;
     }
 

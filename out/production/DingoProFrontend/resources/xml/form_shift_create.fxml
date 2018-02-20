@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import ui.UIView?>
+<fx:root stylesheets="@../../ui/res/css/styles.css" type="ui.UIView" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <Pane>
+        <VBox spacing="14">
+            <Label text="Shift Details"><font><Font name="System Bold" size="12.0" /></font></Label>
+            <JFXDatePicker fx:id="date" promptText="Shift Date" overLay="false" defaultColor="#40739e"/>
+            <ComboBox fx:id="comboBox" minWidth="200" promptText="Shift Type" />
+            <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+        </VBox>
+    </Pane>
+</fx:root>

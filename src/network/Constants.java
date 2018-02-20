@@ -48,6 +48,9 @@ final public class Constants {
         public static String createRoute() {
             return getAddress() + "/createRoute";
         }
+        public static String createShift() {
+            return getAddress() + "/createShift";
+        }
         public static String createVolunteerReportFromDingoReport() {return getAddress() + "/createVolunteerReportFromDingoReport"; }
         public static String getAllReports() {return getAddress() + "/getAllReports"; }
         public static String exportReports() { return getAddress() + "/exportReports";}
@@ -70,6 +73,7 @@ final public class Constants {
         public static String getAccounts() {
             return getAddress() + "/getAccounts";
         }
+
 
     }
     public static class Codes{
