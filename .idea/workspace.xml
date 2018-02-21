@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f42d234-53aa-4d07-b900-5306f284c67a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/controller/AddLandmarkController.java" afterPath="$PROJECT_DIR$/src/controller/AddLandmarkController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controller/AssignFromToController.java" afterPath="$PROJECT_DIR$/src/controller/AssignFromToController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controller/AssignTeamsToShiftsController.java" afterPath="$PROJECT_DIR$/src/controller/AssignTeamsToShiftsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controller/CreateReportController.java" afterPath="$PROJECT_DIR$/src/controller/CreateReportController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ManageRoutesController.java" afterPath="$PROJECT_DIR$/src/controller/ManageRoutesController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ManageShiftsController.java" afterPath="$PROJECT_DIR$/src/controller/ManageShiftsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ManageTeamsController.java" afterPath="$PROJECT_DIR$/src/controller/ManageTeamsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controller/master/HighRankOfficerController.java" afterPath="$PROJECT_DIR$/src/controller/master/HighRankOfficerController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controller/master/OnCallOfficerController.java" afterPath="$PROJECT_DIR$/src/controller/master/OnCallOfficerController.java" />
-      <change beforePath="$PROJECT_DIR$/src/resources/xml/form_ticket_create.fxml" afterPath="$PROJECT_DIR$/src/resources/xml/form_ticket_create.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/view/TicketCreateView.java" afterPath="$PROJECT_DIR$/src/view/TicketCreateView.java" />
+      <change beforePath="$PROJECT_DIR$/src/controller/master/AdminMasterController.java" afterPath="$PROJECT_DIR$/src/controller/master/AdminMasterController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,19 +27,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form_ticket_create.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/xml/form_ticket_create.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="72" column="103" lean-forward="false" selection-start-line="72" selection-start-column="103" selection-end-line="72" selection-end-column="103" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CreateReportController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/CreateReportController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -64,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/src/controller/AddLandmarkController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="549">
-              <caret line="44" column="12" lean-forward="true" selection-start-line="44" selection-start-column="12" selection-end-line="46" selection-end-column="79" />
+              <caret line="44" column="12" lean-forward="false" selection-start-line="44" selection-start-column="12" selection-end-line="46" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -97,17 +74,27 @@
         <entry file="file://$PROJECT_DIR$/src/controller/ReportMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="30" column="48" lean-forward="true" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+              <caret line="30" column="48" lean-forward="false" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ManageTeamsController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ManageTeamsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/ManageTeamsController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="527">
-              <caret line="47" column="67" lean-forward="true" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+              <caret line="47" column="67" lean-forward="false" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminMasterController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controller/master/AdminMasterController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -215,7 +202,6 @@
         <option value="$PROJECT_DIR$/src/controller/master/OperationalOfficerMasterController.java" />
         <option value="$PROJECT_DIR$/src/model/Report.java" />
         <option value="$PROJECT_DIR$/src/controller/SubmitAppealController.java" />
-        <option value="$PROJECT_DIR$/src/controller/master/AdminMasterController.java" />
         <option value="$PROJECT_DIR$/src/resources/xml/controller_triple_assign.fxml" />
         <option value="$PROJECT_DIR$/src/network/Constants.java" />
         <option value="$PROJECT_DIR$/src/network/APIManager.java" />
@@ -231,6 +217,7 @@
         <option value="$PROJECT_DIR$/src/controller/ManageRoutesController.java" />
         <option value="$PROJECT_DIR$/src/controller/ManageShiftsController.java" />
         <option value="$PROJECT_DIR$/src/controller/ManageTeamsController.java" />
+        <option value="$PROJECT_DIR$/src/controller/master/AdminMasterController.java" />
       </list>
     </option>
   </component>
@@ -493,7 +480,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39347827" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39347827" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -748,14 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/master/AdminMasterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="100" column="32" lean-forward="false" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/VehicleModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -953,7 +932,7 @@
     <entry file="file://$PROJECT_DIR$/src/controller/AddLandmarkController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
-          <caret line="44" column="12" lean-forward="true" selection-start-line="44" selection-start-column="12" selection-end-line="46" selection-end-column="79" />
+          <caret line="44" column="12" lean-forward="false" selection-start-line="44" selection-start-column="12" selection-end-line="46" selection-end-column="79" />
           <folding />
         </state>
       </provider>
@@ -980,7 +959,7 @@
     <entry file="file://$PROJECT_DIR$/src/controller/ReportMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="30" column="48" lean-forward="true" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+          <caret line="30" column="48" lean-forward="false" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -996,7 +975,15 @@
     <entry file="file://$PROJECT_DIR$/src/controller/ManageTeamsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
-          <caret line="47" column="67" lean-forward="true" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+          <caret line="47" column="67" lean-forward="false" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/master/AdminMasterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>

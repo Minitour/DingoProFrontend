@@ -19,6 +19,7 @@ public class AdminMasterController extends MasterMenuController{
 
     private UIViewController[] controllers = {
             new AddAnyUserController(),
+            null,
             new UpdatePasswordController()
     };
 
