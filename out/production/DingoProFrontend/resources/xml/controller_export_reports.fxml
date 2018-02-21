@@ -8,7 +8,7 @@
 <UIView fx:id="root" xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
         stylesheets="@../../ui/res/css/styles.css,@../css/style.css">
-    <VBox spacing="16">
+    <VBox spacing="16" fx:id="s_holder">
         <padding><Insets bottom="8" left="8" right="8" top="8"/></padding>
         <JFXDatePicker fx:id="fromDate" promptText="From Date" overLay="false" defaultColor="#40739e"/>
         <JFXDatePicker fx:id="toDate" promptText="To Date" overLay="false" defaultColor="#40739e"/>

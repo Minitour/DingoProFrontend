@@ -21,10 +21,10 @@ import java.util.ResourceBundle;
 public class ExportReportsController extends UIViewController {
 
     @FXML
-    private JFXDatePicker fromDate;
+    protected JFXDatePicker fromDate;
 
     @FXML
-    private JFXDatePicker toDate;
+    protected JFXDatePicker toDate;
 
     @FXML
     private AnchorPane jasper_container;

@@ -54,7 +54,7 @@ public class SplitViewController extends UIViewController {
         super.viewWillLoad(bundle);
 
         //apply custom style
-        splitPane.setStyle("-fx-background-color: white;");
+        //splitPane.setStyle("-fx-background-color: white;");
         leftPane.setStyle("-fx-background-color: white;");
         rightPane.setStyle("-fx-background-color: white;");
 

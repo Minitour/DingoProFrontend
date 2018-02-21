@@ -12,8 +12,8 @@ public class HighRankOfficerController extends MasterMenuController {
     private UIViewController[] controllers = {
             new AppealMenuController(),
             new ReportMenuController(),
-            new GetAppealsReportController(),
             new GetTicketsReportController(),
+            new GetAppealsReportController(),
             new AssignOfficerToTeamController(),
             new AssignTripleController(),
             new AddLandmarkController(),

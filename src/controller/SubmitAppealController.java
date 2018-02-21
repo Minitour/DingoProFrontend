@@ -69,9 +69,13 @@ public class SubmitAppealController extends UIViewController {
         DialogView dialogView = new DialogView();
         dialogView.setTitle("Submitting Appeal");
         dialogView.setMessage("Please wait");
+        dialogView.show(this.view);
         APIManager.getInstance().submitAppeal(appeal,(response, exception) -> {
             if(response.isOK()){
                 dialogView.setMessage("Appeal Submitted!");
+                idField.setText(null);
+                reason.setText(null);
+                date.setText(new Date().toLocaleString());
 
             }else{
                 dialogView.setMessage("Something went wrong: "+(exception == null ? response.getMessage() : exception.getMessage()));

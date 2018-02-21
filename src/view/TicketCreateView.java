@@ -73,8 +73,8 @@ public class TicketCreateView extends UIFormView {
     public TicketCreateView(Report report){
         super("/resources/xml/form_ticket_create.fxml");
 
-        form_title.setText("REPORT ID: "+report.getAlphaNum());
-        form_subtitle.setText("CREATED AT: "+report.getViolationDate());
+        form_title.setText("Report ID: "+report.getAlphaNum());
+        form_subtitle.setText(report.getViolationDate().toLocaleString());
 
         violation.setText(report.getViolationType());
 
@@ -92,6 +92,8 @@ public class TicketCreateView extends UIFormView {
         locationCombo.getItems().add(report.getOrderNum());
         locationCombo.getSelectionModel().select(0);
 
+        descriptionField.setText(report.getDescription());
+
         //lockdown
         plateField.setEditable(false);
         colorField.setEditable(false);
@@ -99,11 +101,12 @@ public class TicketCreateView extends UIFormView {
         licenseField.setEditable(false);
         fnField.setEditable(false);
         addressField.setEditable(false);
+        descriptionField.setEditable(false);
     }
 
 
     public Report getReport(){
-        return new Report(null,
+        Report r =  new Report(null,
                 new Date(),
                 getDescription(),
                 null,
@@ -111,6 +114,10 @@ public class TicketCreateView extends UIFormView {
                 getSuspect(),
                 getVehicle(),
                 null);
+
+        r.setRoute(getRoute());
+        r.setOrderNum(getLandmark());
+        return r;
     }
 
     private String getViolationType(){
@@ -135,6 +142,14 @@ public class TicketCreateView extends UIFormView {
 
     private String getDescription(){
         return descriptionField.getText();
+    }
+
+    private Route getRoute(){
+        return locationCombo.getSelectionModel().getSelectedItem().getRoute();
+    }
+
+    private Landmark getLandmark(){
+        return locationCombo.getSelectionModel().getSelectedItem();
     }
 
     @Override

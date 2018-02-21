@@ -925,7 +925,7 @@ public class APIManager {
     }
 
     public void exportAppealByDate(Date from,Date to,Callbacks.Jasper callback) {
-        exportReportByDate(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, from, to, callback);
+        exportAppealByDate(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, from, to, callback);
     }
 
 
