@@ -1,5 +1,6 @@
 package controller;
 
+import com.jfoenix.controls.JFXSnackbar;
 import model.OperationalOfficer;
 import model.Partnership;
 import network.APIManager;
@@ -37,7 +38,14 @@ public class AssignOfficerToTeamController extends AssignFromToController<Operat
     protected void onAssign(OperationalOfficer from, Partnership to) {
         super.onAssign(from, to);
         APIManager.getInstance().assignOfficerToPartnership(from, to, (response, exception) -> {
-            //TODO: handle response
+            JFXSnackbar bar = new JFXSnackbar(this.view);
+            if (response.isOK()) {
+                bar.enqueue(new JFXSnackbar.SnackbarEvent("Assigned Officer "+from.getName() + " to Team #"+to.getPtshipNum()));
+            }
+            else
+                bar.enqueue(new JFXSnackbar.SnackbarEvent("Something went wrong: "+response.getMessage()));
+            reset();
+            refresh();
         });
     }
 

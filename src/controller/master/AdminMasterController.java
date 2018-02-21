@@ -19,7 +19,6 @@ public class AdminMasterController extends MasterMenuController{
 
     private UIViewController[] controllers = {
             new AddAnyUserController(),
-            null,
             new UpdatePasswordController()
     };
 
@@ -99,7 +98,6 @@ public class AdminMasterController extends MasterMenuController{
         return new String[]{
                 "Add User",
                 "Active Users",
-                "Export/Import",
                 "Update Password"
         };
     }

@@ -32,6 +32,9 @@ public class AppealMenuController extends SplitViewController{
 
     @Override
     protected void onListItemChanged(int value) {
+        if(value == -1)
+            return;
+
         Appeal appeal = listView.getItems().get(value);
 
         AppealView view = new AppealView(appeal);

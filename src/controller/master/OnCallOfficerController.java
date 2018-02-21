@@ -37,6 +37,9 @@ public class OnCallOfficerController extends MasterMenuController {
             ((AssignOfficerToTeamController) controller).refresh();
         }
 
+        if(controller instanceof AssignTripleController){
+            ((AssignTripleController) controller).refresh();
+        }
 
         if(controller instanceof AddLandmarkController){
             ((AddLandmarkController) controller).refresh();
