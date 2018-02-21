@@ -8,17 +8,17 @@ final public class Constants {
     /**
      * Protocol
      */
-    public final static String protocol = "http";
+    public final static String protocol = Config.config.get("protocol").getAsString();
 
     /**
      * Address
      */
-    public final static String address = "localhost";
+    public final static String address = Config.config.get("address").getAsString();
 
     /**
      * Port
      */
-    public final static String port = "8123";
+    public final static String port = Config.config.get("port").getAsString();
 
     /**
      * @return full path
